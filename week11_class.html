@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writing Your Thesis Well — Honours Thesis · Week 11</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream:        #FAF7F2;
+    --warm:         #F0EBE3;
+    --navy:         #1C2B4A;
+    --navy-lift:    #2A3B5F;
+    --navy-border:  rgba(255,255,255,0.18);
+    --terracotta:   #C2622D;
+    --terracotta-soft: #FDF3EE;
+    --reveal-bg:    #FFF8F5;
+    --white:        #FFFFFF;
+    --ink:          #1C2B4A;
+    --muted-ink:    rgba(28,43,74,0.65);
+    --muted-white:  rgba(255,255,255,0.72);
+    --shadow:       0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lift:  0 6px 24px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section frame ──────────────────────────────────────────── */
+  section {
+    min-height: 90vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section > .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-warm  { background: var(--warm);  color: var(--ink); }
+  .bg-navy  { background: var(--navy);  color: var(--white); }
+
+  /* ── Type ───────────────────────────────────────────────────── */
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom: 1.25rem;
+  }
+  .bg-navy .section-title { color: var(--white); }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--muted-white);
+    margin: 0 0 3rem 0;
+    max-width: 740px;
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+  .bg-cream .subtitle, .bg-warm .subtitle { color: var(--muted-ink); }
+
+  p { margin: 0 0 1rem 0; }
+  .lede { font-size: 1.15rem; }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero { text-align: center; }
+  .hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(3.2rem, 7vw, 5.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    color: var(--muted-white);
+    margin-bottom: 5rem;
+  }
+  .hero .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-navy {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* ── Reveal button ──────────────────────────────────────────── */
+  .reveal-btn {
+    display: block;
+    margin: 2rem auto;
+    background: transparent;
+    border: 2px solid var(--terracotta);
+    color: var(--terracotta);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .reveal-btn:hover {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .reveal {
+    background: var(--reveal-bg);
+    border-radius: 1rem;
+    padding: 2rem 2.25rem;
+    margin-top: 1rem;
+  }
+  .reveal h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--navy);
+  }
+  .reveal p { font-size: 1.02rem; line-height: 1.65; }
+  .reveal blockquote {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .reveal em.tag {
+    display: block;
+    margin-top: 1rem;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  /* ── Socratic question blocks ──────────────────────────────── */
+  .q-stack { width: 100%; }
+  .q-block {
+    border-top: 1px solid rgba(28,43,74,0.12);
+    padding: 3rem 0 2rem;
+  }
+  .q-block:first-child { border-top: 0; padding-top: 0; }
+  .q-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .q-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+  }
+  .facilitator-note {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--muted-ink);
+    background: rgba(28,43,74,0.04);
+    border-left: 2px solid rgba(28,43,74,0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.4rem 0.4rem 0;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.55;
+  }
+  .facilitator-note .fn-label {
+    display: block;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: rgba(28,43,74,0.5);
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── Option cards (Three Options section) ──────────────────── */
+  .option-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .option-card h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .option-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(28,43,74,0.07);
+  }
+  .option-row:first-of-type { border-top: 0; }
+  .option-row .lbl {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    padding-top: 0.2rem;
+  }
+  .option-row .val { font-size: 1.02rem; line-height: 1.6; }
+
+  .callout {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 1rem 1rem 0;
+    padding: 2rem 2.25rem;
+    box-shadow: var(--shadow);
+    margin-top: 2.5rem;
+  }
+  .callout h3 {
+    font-size: 1.45rem;
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+  }
+  .callout p { font-size: 1rem; line-height: 1.65; }
+
+  .choose-block {
+    margin-top: 3rem;
+    text-align: left;
+  }
+  .choose-block h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .choose-block p { font-size: 1.05rem; line-height: 1.7; }
+
+  /* ── Concept preamble ──────────────────────────────────────── */
+  .concept-block { margin-bottom: 3rem; }
+  .concept-block h3 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin: 0 0 1rem 0;
+  }
+  .bg-navy .concept-block { color: var(--muted-white); }
+  .bg-navy .concept-block p { color: var(--muted-white); }
+  .example-inset {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .example-inset .ex-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 0.5rem 0 0.25rem 0;
+  }
+  .example-inset .ex-label:first-child { margin-top: 0; }
+
+  .principle-card {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem 2.25rem;
+    margin-top: 2rem;
+    color: var(--white);
+  }
+  .principle-card h4 {
+    font-size: 1.3rem;
+    color: var(--terracotta);
+    margin: 0 0 0.75rem 0;
+  }
+  .principle-card p { color: var(--muted-white); font-size: 1rem; line-height: 1.7; margin: 0; }
+
+  /* ── Sentence practice vignette ────────────────────────────── */
+  .vignette {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    width: 100%;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .vignette .cat-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--terracotta);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .vignette .item-num {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: var(--muted-ink);
+    font-weight: 600;
+    margin-right: 0.75rem;
+  }
+  .original-sentence {
+    background: var(--cream);
+    border-left: 3px solid rgba(28,43,74,0.18);
+    padding: 1.1rem 1.4rem;
+    margin: 0.5rem 0 1.25rem 0;
+    font-family: 'Georgia', 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--ink);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+  }
+  .vignette .prompt-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin: 1.25rem 0 0 0;
+    line-height: 1.4;
+  }
+  .corrected-sentence {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 0 0 1rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--navy);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .corrected-sentence.better {
+    border-left-color: var(--navy);
+    background: var(--terracotta-soft);
+  }
+  .correction-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+  }
+  .correction-label.better-label { color: var(--navy); }
+  .reveal .explainer { margin-top: 0.5rem; font-size: 1rem; line-height: 1.65; color: var(--ink); }
+
+  /* ── Your Own Work numbered list ───────────────────────────── */
+  .activity-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    color: var(--ink);
+    box-shadow: var(--shadow-lift);
+    margin-top: 2rem;
+  }
+  .activity-card ol {
+    list-style: none;
+    counter-reset: lc;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  .activity-card ol li {
+    counter-increment: lc;
+    padding: 0.85rem 0;
+    padding-left: 2.75rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    border-top: 1px solid rgba(28,43,74,0.06);
+  }
+  .activity-card ol li:first-child { border-top: 0; }
+  .activity-card ol li::before {
+    content: counter(lc);
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    color: var(--terracotta);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    width: 2rem;
+  }
+  .activity-card .closer-line {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(28,43,74,0.1);
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .open-now {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* ── Closing ────────────────────────────────────────────────── */
+  .close-stack { text-align: center; }
+  .close-stack .quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 880px;
+    margin: 0 auto 4rem;
+  }
+  .close-stack .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Inline emphasis inside reveals ───────────────────────── */
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  .reveal ul {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .reveal ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* ── Alice quote callout (in concept preamble) ─────────────── */
+  .alice-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    color: var(--terracotta);
+    border-left: 4px solid var(--terracotta);
+    padding: 1.6rem 2rem;
+    margin: 2.5rem 0 2rem;
+    line-height: 1.4;
+    background: rgba(194,98,45,0.08);
+    border-radius: 0 1rem 1rem 0;
+  }
+  .alice-quote .attr {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    color: var(--muted-white);
+    margin-top: 1rem;
+  }
+
+  /* ── Resource link (video) ────────────────────────────────── */
+  .resource-link {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1rem;
+    color: var(--muted-white);
+  }
+  .resource-link .res-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-right: 0.6rem;
+  }
+  .resource-link a {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-color: rgba(194,98,45,0.55);
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .resource-link a:hover {
+    text-decoration-color: var(--terracotta);
+    color: var(--terracotta);
+  }
+  .resource-link .meta {
+    color: var(--muted-white);
+    font-style: italic;
+    margin-left: 0.4rem;
+  }
+
+  /* ── Inline rule callout (the "never use utilise" warning) ── */
+  .rule-callout {
+    background: rgba(194,98,45,0.12);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0;
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .rule-callout strong { color: var(--terracotta); }
+
+  /* ── Phantom attribution examples list ─────────────────────── */
+  .phantom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 1.25rem 0;
+  }
+  .phantom-list li {
+    padding: 0.45rem 0 0.45rem 1.5rem;
+    position: relative;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+  .phantom-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--terracotta);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ── Friend Test standalone block ──────────────────────────── */
+  .friend-test {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.5rem;
+    padding: 2.25rem 2.5rem;
+    margin-top: 3rem;
+    color: var(--white);
+  }
+  .friend-test .ft-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+  .friend-test h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin: 0 0 1.25rem 0;
+  }
+  .friend-test p {
+    color: var(--muted-white);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .friend-test p:last-child { margin-bottom: 0; }
+  .friend-test em { font-style: italic; }
+
+  /* ── "Important" highlight row in option card ─────────────── */
+  .option-row.important {
+    background: var(--terracotta-soft);
+    border-radius: 0.6rem;
+    padding: 0.85rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .option-row.important .lbl { color: var(--terracotta); }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    .vignette, .card, .option-card, .activity-card, .callout, .friend-test { padding: 1.75rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero .hero-sub { margin-bottom: 3rem; }
+    .option-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="bg-navy">
+  <div class="container hero">
+    <div class="eyebrow">Honours Thesis · Week 11</div>
+    <h1>Writing Your Thesis Well</h1>
+    <div class="hero-sub">Framing your argument. Writing with precision.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<!-- ══════════ PART ONE INTRO ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">What are you actually arguing?</h2>
+    <p class="lede">Before you can write your thesis, you need to make a decision. The study has multiple components. You have 6,000 words. Those two facts together mean that your thesis is an argument with a shape — and the shape is your choice.</p>
+    <p class="lede">This section works through that choice using a series of questions. Don't look for the right answer immediately. Sit with each question first.</p>
+  </div>
+</section>
+
+<!-- ══════════ SOCRATIC QUESTIONS ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Thesis Framing</span>
+    <h2 class="section-title">Seven questions to sit with.</h2>
+
+    <div class="q-stack">
+
+      <!-- QUESTION 1 -->
+      <div class="q-block">
+        <div class="q-tag">Question 1</div>
+        <p class="q-prompt">Before we talk about your thesis — cast your minds back to the full study design. What are all the things we're actually measuring? List everything you can think of.</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Full Inventory</h3>
+          <p>The full list:</p>
+          <ul>
+            <li><strong>Accuracy</strong> — hits, misses, misidentifications, correct rejections, false positives; signal detection measures (d′ and criterion c)</li>
+            <li><strong>Think-aloud process analysis</strong> — qualitative and quantitative coding of concurrent verbalisations</li>
+            <li><strong>Memory test</strong> — 4-AFC recognition memory for target confederates</li>
+            <li><strong>BOLO card review behaviour</strong> — how often and how long participants consulted the reference card</li>
+            <li><strong>Confidence ratings</strong> — post-trial, 1–10 scale (note: difficulty ratings are not collected — confidence only)</li>
+            <li><strong>Post-trial verbal questions</strong> — Q1–Q3 structured responses; a separate data source from the concurrent think-aloud</li>
+            <li><strong>Exploratory metrics</strong> — eye-tracking (time to first target fixation, candidates fixated before target fixation, time from fixation to decision), candidates-considered</li>
+          </ul>
+          <p>That's a lot. And your thesis can't be about all of it equally.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="q-block">
+        <div class="q-tag">Question 2</div>
+        <p class="q-prompt">If you could only ever include one component — the one thing no thesis in this cohort could be without — what would it be? Why?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Non-Negotiable</h3>
+          <p><strong>Accuracy.</strong> Everything else in this study is predicated on the SR accuracy advantage existing in this task. The think-aloud analysis only means something if SRs are doing something differently that results in better performance. The memory test only matters if there's a meaningful difference in group behaviour worth explaining.</p>
+          <p>If SRs don't outperform controls, the process-level analyses lose their interpretive foundation. Accuracy is the ground floor. It is non-optional in every thesis.</p>
+          <p>And here's something worth knowing: you could technically write your entire thesis on accuracy alone, and it would still be a meaningful scientific contribution. This study is not a perfect replication of last year's — there are more trials, no police group, a cleaner two-group design. Replication in a better-powered, more focused setting is valuable in its own right. So accuracy alone is not a thin thesis. It is a foundation strong enough to stand on.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="q-block">
+        <div class="q-tag">Question 3</div>
+        <p class="q-prompt">At the other end — what's on that list that is most optional? What would be the most defensible thing to leave out entirely?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Peripheral</h3>
+          <p>The <strong>exploratory metrics</strong> — the eye-tracking measures and the candidates-considered metric. And <strong>confidence ratings</strong> are also relatively optional; interesting, and they'll appear in the paper, but they're not carrying any student's core argument.</p>
+          <p>Why are the exploratory metrics the most defensible exclusion? Not just because they're labelled "exploratory" in the pre-registration — though they are. It's because these methods are genuinely brand new. Nobody has done this in face identification research before. We cannot know in advance whether they'll produce clean, interpretable data. When you're making decisions about what to stake your thesis on, stake it on the methods that are demonstrated, validated, and reliable. That's a real scholarly judgment, not a cop-out.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="q-block">
+        <div class="q-tag">Question 4</div>
+        <p class="q-prompt">Two things on that list are actually a package deal — you include one, you have to include the other. Which two, and why?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Package</h3>
+          <p><strong>Memory test and BOLO card review behaviour.</strong> They are analytically inseparable.</p>
+          <p>The memory test measures face recognition quality after the session. But BOLO card review count during the search period is a required fixed effect in the memory test model — participants who consulted the reference card more often during the task may have better face memory through sheer repetition, independent of how well they encoded the face during the initial 30-second study period. If you report the memory test without accounting for this, your group comparison is potentially confounded.</p>
+          <p>If you include the memory test, you include BOLO card review behaviour. They travel together.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="q-block">
+        <div class="q-tag">Question 5</div>
+        <p class="q-prompt">You have 6,000 words. If you include accuracy, think-aloud, and memory — all three — what are you trading away?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Trade-Off</h3>
+          <p><strong>Depth.</strong> With all three components, your introduction is spread across three distinct bodies of literature. Your results section has three main analytical threads. Your discussion needs to integrate findings across all three.</p>
+          <p>But let's be honest about both sides. The thesis that includes all three also gains something real: your discussion can synthesise across three entirely different data streams simultaneously — behavioural accuracy, verbal process data, and memory — and if you can pull that off well, it is genuinely sophisticated work. When you have answers from three different sources pointing in the same direction, that convergence is powerful.</p>
+          <p>The thesis that focuses on two components has a tighter, more deeply motivated argument, more space to engage with the literature, and a cleaner line from rationale to hypothesis to result.</p>
+          <p>Neither choice is wrong. But here's the thing that matters most: <strong>in every single framing, a great thesis is possible.</strong> The differentiator is not which option you choose — it's how well you execute the one you chose. The execution is everything.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="q-block">
+        <div class="q-tag">Question 6</div>
+        <p class="q-prompt">Here's the one I actually want you sitting with. Two people in this room could have exactly the same data — the same measures, the same analyses — and still write completely different theses. Both right. How?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Insight</h3>
+          <p>Because a thesis is an <strong>argument</strong>, not a report.</p>
+          <p>You start with a research question and a hypothesis. That question is yours to form. And a thesis is three things layered on top of each other: a rationale for why the question you're posing is worth asking; a rationale for why your particular metrics are going to answer it well; and a rationale for why you're making the specific prediction you're making. All three of those elements can be constructed differently from the same dataset, by someone with a different angle — and both can be right.</p>
+          <p>You are not writing a document that describes everything that happened. You are constructing a case. The data does not determine the framing. You do.</p>
+        </div>
+      </div>
+
+      <!-- QUESTION 7 -->
+      <div class="q-block">
+        <div class="q-tag">Question 7</div>
+        <p class="q-prompt">So when you sit down to decide what to include — what's the right question to be asking yourself? "Which of these do I find most interesting?" Or something else?</p>        <button class="reveal-btn">↓ Show Teaching Point</button>
+        <div class="reveal" style="display:none">
+          <h3>The Compass</h3>
+          <p>Interesting doesn't matter. Not if you want a good grade.</p>
+          <p>The right question is: <strong>which body of evidence makes the strongest case for the hypotheses I want to test, in the setting we are actually studying?</strong></p>
+          <p>The word is <em>compelling</em>, not <em>interesting</em>. Look at what your metrics are capturing. Then look at the literature — what does the existing evidence already speak to? Where is the literature already taking you, in terms of what's most likely to explain the SR advantage? Go there. Lean into it.</p>
+          <p>If you have an idea that feels exciting but you go to the literature and can't find a single piece of evidence to support it — you might get lucky. Your idea might be right. But you are going to have a very hard time building a compelling rationale for it in your introduction. The alternative is to try to assemble something out of scope, pull in abstract literature from adjacent fields, flip the puzzle piece sideways and hope it fits. That takes a lot of skill to get right.</p>
+          <p>Your better option is to go where the literature is already pointing. Not the interesting thing. The compelling thing. What does the evidence say? Start there.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THE THREE OPTIONS ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">The Options</span>
+    <h2 class="section-title">Three valid ways to frame this thesis.</h2>
+    <p class="lede">Here is the landscape. There are three framings that are sufficiently rigorous and sophisticated for honours-level work. Any of them can produce a great thesis. Your job is to choose one — and then execute it well.</p>
+    <p class="lede"><strong>Accuracy is non-optional in every option below.</strong> The one metric that is genuinely optional across all three is confidence.</p>
+
+    <div style="margin-top:3rem;">
+
+      <div class="option-card">
+        <h3>Option 1: Accuracy + Think-Aloud + Memory</h3>
+        <div class="option-row">
+          <div class="lbl">Cost</div>
+          <div class="val">Depth. With three components, your introduction spans three bodies of literature, your results section has three analytical threads, and your discussion must integrate findings across all of them. More supporting content will need to live in appendices.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Gain</div>
+          <div class="val">The most complete picture of the phenomenon — and if done well, genuine analytical power. When three different data streams converge on the same conclusion, that convergence is itself a scientific contribution.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Suits</div>
+          <div class="val">Students drawn to breadth who are confident they can execute three threads at the level of precision required. Remember: a great thesis on this framing is absolutely possible. It demands a lot from your writing.</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <h3>Option 2: Accuracy + Think-Aloud</h3>
+        <div class="option-row">
+          <div class="lbl">Leaves out</div>
+          <div class="val">The memory test and BOLO card review behaviour (the full memory package).</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Cost</div>
+          <div class="val">The mental-representation strand of explanation.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Gain</div>
+          <div class="val">Room to go deep on visual search, attentional guidance, and what super-recognisers might be doing in the moment of search, grounded in the think-aloud data.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Suits</div>
+          <div class="val">Students compelled by the process-level question of how super-recognisers actually conduct the search itself.</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <h3>Option 3: Accuracy + Memory</h3>
+        <div class="option-row">
+          <div class="lbl">Leaves out</div>
+          <div class="val">The think-aloud strand.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Cost</div>
+          <div class="val">The in-the-moment, process-level behavioural story.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Gain</div>
+          <div class="val">Room to go deep on mental representation and face memory as a mechanism for explaining accuracy differences. Your introduction will have a clear two-part structure: replicate the accuracy effect; explain it via encoding and memory. You can go hard on what we already know about encoding differences across different types of material, what happens specifically with faces, and what the existing literature tells us about SR encoding in particular.</div>
+        </div>
+        <div class="option-row important">
+          <div class="lbl">Important</div>
+          <div class="val">Null findings are findings. If the memory test doesn't show the expected group difference, that is still a valuable result — it tells us that mental representation, or at least the way we're measuring it, is probably not the primary explanation of what super-recognisers are doing differently. That is itself knowledge worth having. The best discussions often come from unexpected results: was it that the effect isn't there, or that we didn't measure it the right way? That conversation is rich.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Suits</div>
+          <div class="val">Students drawn to the mental representation literature who want a mechanistic argument for the accuracy advantage.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <h3>One thing to be careful about if you include think-aloud.</h3>
+      <p>If you choose Option 1 or Option 2, your introduction will involve making some predictions about what super-recognisers might be doing differently during search. That's fine — and necessary — at the level of: <em>we suspect there may be differences in how super-recognisers conduct their search; we suspect there may be differences in how quickly they rule candidates in or out.</em></p>
+      <p>What your introduction should <strong>not</strong> do is build a rationale around a specific, narrow think-aloud code and then argue that the rest of the data is irrelevant. Here's why: the coding framework is data-driven. We don't have the codes in advance. They will be extracted from the data itself — we immerse in transcripts, let the patterns rise to the surface, and that is what the analysis reports. Whatever rises to the top is the answer.</p>
+      <p>If you choose to focus on only a subset of those codes, you are ignoring data that was measured. You can't do that. If you're including the think-aloud, you take it as it is. Predict broad patterns of search behaviour. You cannot pre-commit to only caring about one narrow slice.</p>
+    </div>
+
+    <div class="choose-block">
+      <h3>How to choose.</h3>
+      <p>The word you want to be asking yourself is <strong>compelling</strong>, not <em>interesting</em>.</p>
+      <p>Pick the framing where the literature already gives you the most purchase. Where the evidence speaks most directly to the setting we're actually studying. Where you can build the strongest case.</p>
+      <p>Then execute that framing as well as you possibly can. That is what determines your grade — not the option you chose, but how well you wrote it.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PART TWO INTRO ══════════ -->
+<section class="bg-navy">
+  <div class="container">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">Writing with precision.</h2>
+    <p class="subtitle">Clarity is not the absence of complexity. It's evidence that you understand what you're saying.</p>
+  </div>
+</section>
+
+<!-- ══════════ CONCEPT PREAMBLE ══════════ -->
+<section class="bg-navy">
+  <div class="container">
+    <span class="section-label">Three Patterns</span>
+    <h2 class="section-title">Three things that quietly weaken academic writing.</h2>
+
+    <div class="concept-block" style="margin-top:2rem;">
+      <p>There is a widespread belief among students that complicated sentences and big words signal intelligence. This belief is wrong, and it will cost you marks.</p>
+      <p>The thing that signals intelligence is <strong>clarity</strong>. And clarity comes from simplicity. If you can explain a complex idea in fewer, simpler words, it demonstrates that you understand the idea — that you've processed it deeply enough to strip away the scaffolding and say the real thing. If you bury it in abstractions and passive constructions and noun stacks, it suggests the opposite.</p>
+      <p>Here is the test that matters: <strong>if your reader has to read a sentence more than once to extract its meaning, you have failed that sentence.</strong> Not because the idea was too complex — because the writing didn't carry it clearly enough. The reading experience is the measure of your writing quality.</p>
+      <p>And here is Alice's formulation, which is better than any other way of putting it:</p>
+
+      <blockquote class="alice-quote">
+        You don't want to make yourself sound smart. You want to make your reader feel smart.
+        <span class="attr">— Alice Towler</span>
+      </blockquote>
+
+      <p>Hold onto that. It changes how you approach every sentence.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>1. Nominalisations — zombie nouns.</h3>
+      <p>A nominalisation is a noun created from a verb or adjective. <em>Investigation</em> from <em>investigate</em>. <em>Development</em> from <em>develop</em>. <em>Utilisation</em> from <em>utilise</em>.</p>
+      <p>They are called zombie nouns because they drain the life from a sentence. Verbs are where the action lives — they are the doing words, the things that people do. When you turn a verb into a noun, you don't just add length. You kill the action. People stop doing things. Instead, stuff just happens.</p>
+
+      <div class="example-inset">
+        <span class="ex-label">Before</span>
+        The investigation of sleep patterns was conducted by the team.
+        <span class="ex-label">After</span>
+        The team investigated sleep patterns.
+      </div>
+
+      <p>Feel the difference. In the first sentence, stuff happened. In the second, someone did something. That is what you want — people doing things, agents acting, events occurring. Not nouns piling up in a sentence that could have been three words shorter.</p>
+      <p><strong>The zombie test:</strong> if the word "zombie" sounds natural in front of it, it's probably a nominalisation. <em>Zombie investigation. Zombie development. Zombie utilisation.</em> Replace them with their verb forms wherever possible.</p>
+
+      <div class="rule-callout">
+        <strong>One rule with no exceptions: never use the word <em>utilise</em>.</strong> It adds no information that <em>use</em> doesn't already carry, it has more syllables than it needs, and it signals that you are trying to sound sophisticated rather than being clear. Every instance of <em>utilise</em> in your thesis will be noticed. Use <em>use</em>.
+      </div>
+
+      <div class="resource-link">
+        <span class="res-label">Watch this</span>
+        <a href="https://www.youtube.com/watch?v=dNlkHtMgcPQ" target="_blank" rel="noopener">Zombie Nouns — Helen Sword ↗</a>
+        <span class="meta">(5 minutes. Required viewing.)</span>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>2. Phantom attributions.</h3>
+      <p>These are the phrases that attribute a claim to no one in particular:</p>
+      <ul class="phantom-list">
+        <li>It is argued that...</li>
+        <li>It is thought that...</li>
+        <li>It is seen that...</li>
+        <li>X are seen to...</li>
+        <li>It is speculated that...</li>
+      </ul>
+      <p>These constructions are a form of intellectual cowardice. If someone argued something, say who argued it. If a study found something, say which study. Attributions without agents tell your reader nothing except that someone, somewhere, maybe thought something.</p>
+      <p>Compare:</p>
+
+      <div class="example-inset">
+        <span class="ex-label">Phantom</span>
+        Fruit and vegetables are seen to improve physical health.
+      </div>
+
+      <p>Seen by whom? Under what conditions? This sentence floats in a void. It sounds like a claim but it isn't one.</p>
+      <p>If you have a specific claim — name the source. <em>Smith and Jones (2021) found that eating fruit and vegetables reduced the risk of coronary heart disease.</em> Now we have a claim, an attribution, and something to evaluate.</p>
+      <p>If you don't have a specific source and you're making a general statement, just make it: <em>Eating fruit and vegetables reduces the risk of coronary heart disease.</em> Own the claim. Don't hide it behind a phantom voice.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>3. Active vs. passive voice.</h3>
+      <p>Here is the simplest way to think about this distinction:</p>
+
+      <div class="example-inset">
+        <span class="ex-label">Active voice — somebody did something</span>
+        The research team investigated the effect.
+        <span class="ex-label">Passive voice — stuff just happened</span>
+        An investigation of the effect was conducted.
+      </div>
+
+      <p>The first sentence tells us who did what. The second tells us that something happened — but not by whom.</p>
+      <p>Passive voice is not always wrong. Sometimes you genuinely don't know who the agent is, or it genuinely doesn't matter. But in most cases, active voice is shorter, clearer, and more honest about who is responsible for what. In scientific writing, that matters.</p>
+    </div>
+
+    <div class="friend-test">
+      <span class="ft-label">The Friend Test</span>
+      <h3>How would you say this out loud?</h3>
+      <p>Before you commit to a sentence, ask yourself: <em>how would I explain this meaning out loud to a friend — not formally, just in conversation?</em></p>
+      <p>What words would you reach for? What order would the sentence take?</p>
+      <p>That version is almost always simpler, more direct, and closer to what belongs on the page. Academic writing does not require a different vocabulary. It requires precision. Those are not the same thing.</p>
+      <p>When you are stuck on a sentence — when it feels tangled and you've reread it four times — stop trying to edit the words on the page. Ask yourself what you're actually trying to say. Say it out loud as if explaining it to someone. Then write that.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ SENTENCE PRACTICE — BATCH 1 (1-6) ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Sentence Practice · 1–6</span>
+    <h2 class="section-title">Find the verb. Free it.</h2>
+    <p class="lede" style="margin-bottom:3rem;">Each sentence below has a problem. Read it, name the problem, then reveal the correction.</p>
+
+    <!-- 1 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">01</span>Nominalisation</div>
+      <div class="original-sentence">We should take into consideration several factors.</div>
+      <p class="prompt-q">What's weighing this sentence down?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">We should consider several factors.</div>
+        <p class="explainer">The nominalisation <em>consideration</em> hides the verb <em>consider</em>. Remove the scaffolding (<em>take into</em>) and the noun (<em>consideration</em>), replace with the verb. Eleven words become five.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">02</span>Nominalisation</div>
+      <div class="original-sentence">They gave us information about the new research program.</div>
+      <p class="prompt-q">There's a verb buried in here. Find it.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">They informed us about the new research program.</div>
+        <p class="explainer"><em>Information</em> → <em>inform</em>. The verb was hiding inside the noun the whole time.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">03</span>Nominalisation</div>
+      <div class="original-sentence">He must make a decision about what to do.</div>
+      <p class="prompt-q">Classic pattern. What is it?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">He must decide what to do.</div>
+        <p class="explainer"><em>Make a decision</em> is one of the most common nominalisation patterns in academic writing. The verb <em>decide</em> is always there. Use it.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">04</span>Passive voice + nominalisation</div>
+      <div class="original-sentence">There was a committee agreement on the number of volunteers needed for the fundraiser.</div>
+      <p class="prompt-q">Two things to fix here. Who did what, and where's the buried verb?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">The committee agreed on the number of volunteers the fundraiser needed.</div>
+        <p class="explainer"><em>Agreement</em> → <em>agreed</em>. And the agent (the committee) is now doing something, not just being present in the sentence.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">05</span>Passive voice</div>
+      <div class="original-sentence">An investigation of the affect of meditation on sleep quality was conducted.</div>
+      <p class="prompt-q">Who conducted it? And what's the verb that's been nominalised?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">We investigated the effect of meditation on sleep quality.</div>
+        <span class="correction-label better-label">Or</span>
+        <div class="corrected-sentence better">We investigated how meditation affects sleep quality.</div>
+        <p class="explainer"><em>Investigation</em> → <em>investigated</em>. The passive construction (<em>was conducted</em>) disappears when the agent takes the subject position. Note also: <em>affect</em> (verb) corrected to <em>effect</em> (noun).</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">06</span>Passive voice + tangled structure</div>
+      <div class="original-sentence">First was their introduction of their analysis of dreams by the trauma patients.</div>
+      <p class="prompt-q">This one is genuinely tangled. Untangle it.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">First, they introduced their analysis of the trauma patients' dreams.</div>
+        <span class="correction-label better-label">Better</span>
+        <div class="corrected-sentence better">They began by describing how they analysed the dreams of trauma patients.</div>
+        <p class="explainer">The original sentence has the agent buried mid-sentence (<em>their</em>), a double possessive (<em>their introduction of their analysis</em>), and ambiguous attribution (<em>by the trauma patients</em> — who analysed whose dreams?). The better version restructures entirely: verb-first, clear subject, clear object.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ SENTENCE PRACTICE — BATCH 2 (7-12) ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Sentence Practice · 7–12</span>
+    <h2 class="section-title">Strip the scaffolding.</h2>
+
+    <!-- 7 -->
+    <div class="vignette" style="margin-top:2rem;">
+      <div class="cat-label"><span class="item-num">07</span>Passive voice</div>
+      <div class="original-sentence">The test results will be reviewed tomorrow.</div>
+      <p class="prompt-q">Simple one. Who's doing the reviewing?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">We will review the test results tomorrow.</div>
+        <p class="explainer">Passive voice erases the agent. Active voice puts them back. In scientific writing, knowing <em>who</em> did something often matters — don't let passive constructions hide it.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">08</span>Nominalisation + passive</div>
+      <div class="original-sentence">There is a growing trend towards the adoption of renewable energy sources by countries worldwide.</div>
+      <p class="prompt-q">What's the trend actually doing? Make it do that.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">Countries worldwide increasingly adopt renewable energy sources.</div>
+        <p class="explainer"><em>Trend towards the adoption of</em> is doing the work of a single verb: <em>adopt</em>. Strip the scaffolding. Let the subject act.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">09</span>Nominalisation + passive</div>
+      <div class="original-sentence">The failure of the staff to implement adequate organisation of the festival was a disappointment to us.</div>
+      <p class="prompt-q">Long. Heavy. Two nominalisations. Find them.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">We were disappointed by the staff's poor festival organisation.</div>
+        <p class="explainer"><em>Failure</em> and <em>disappointment</em> are both nominalisations. This version is still slightly passive (<em>were disappointed</em>) but significantly leaner. The key move: compress <em>the failure of the staff to implement adequate organisation</em> into <em>the staff's poor festival organisation</em> — three words of attribution instead of nine.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">10</span>Nominalisation + passive</div>
+      <div class="original-sentence">The conclusion of the study was that there was a correlation between sleep deprivation and decreased cognitive function.</div>
+      <p class="prompt-q">The study did something. What was it, and where's the verb?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">The study concluded that sleep deprivation correlates with decreased cognitive function.</div>
+        <p class="explainer"><em>Conclusion</em> → <em>concluded</em>. <em>There was a correlation</em> → <em>correlates</em>. Two nominalisations freed in one sentence. Note also the economy: 18 words become 11.</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">11</span>Passive + phantom attribution + buried structure</div>
+      <div class="original-sentence">Importantly, fruit and vegetables are seen to improve physical health, reducing the risk to coronary heart disease, enhancing development of the brain and improving mental health parameters such as psychological distress.</div>
+      <p class="prompt-q">This sentence is doing too much, and it's hiding behind a phantom. What's the phantom, and what's the core claim?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">Eating fruit and vegetables can lower the risk of coronary heart disease, enhance brain development, and reduce psychological distress.</div>
+        <p class="explainer">Two things to unpack here.</p>
+        <p class="explainer">First: <em>are seen to</em> is a phantom attribution. Seen by whom? It adds no information and no credibility. Remove it. If you have a source, cite it. If you don't, own the claim directly.</p>
+        <p class="explainer">Second: <em>Importantly</em> is a flag that the writer suspects the sentence can't carry its own weight. If it's important, a well-written sentence will show it. The word <em>Importantly</em> is doing no work here — the content is what matters, and the content is stronger without the announcement.</p>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">12</span>Nominalisation</div>
+      <div class="original-sentence">The utilization of technology in the classroom can enhance student engagement and participation.</div>
+      <p class="prompt-q">The first noun phrase is the problem. And there's a banned word in here.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">Using technology in the classroom can engage students and encourage participation.</div>
+        <p class="explainer"><em>The utilization of</em> → <em>using</em>. And yes — <em>utilization</em> is derived from <em>utilise</em>, which is on the never-use list. It adds nothing that <em>use</em> doesn't carry, and it signals effort rather than clarity. While we're here: <em>enhance student engagement</em> → <em>engage students</em>. Same move twice.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ SENTENCE PRACTICE — BATCH 3 (13-17) ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Sentence Practice · 13–17</span>
+    <h2 class="section-title">Rebuild from the verb.</h2>
+
+    <!-- 13 -->
+    <div class="vignette" style="margin-top:2rem;">
+      <div class="cat-label"><span class="item-num">13</span>Nominalisation + weak verb</div>
+      <div class="original-sentence">The impact of social media on the formation of relationships is a topic of much debate.</div>
+      <p class="prompt-q">Three nominalisations. Find them all, then rebuild. And remember: the words on the page are optional. The meaning is not.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">Social media's role in shaping relationships sparks much debate.</div>
+        <p class="explainer"><em>Impact</em> → absorbed into <em>role</em>. <em>Formation of</em> → <em>shaping</em>. <em>Is a topic of much debate</em> → <em>sparks much debate</em>.</p>
+        <p class="explainer">Two things worth noting here. First: students often feel anchored to the original words when rewriting. You are not obligated to keep any of them. Strip back to the meaning — what is actually being said? — and rebuild from there. The meaning is what you must preserve. The words are entirely up to you.</p>
+        <p class="explainer">Second: <em>sparks</em> is not just cleaner than <em>is a topic of much debate</em> — it's more precise. A strong verb can add meaning, not just remove clutter. <em>Debate sparks</em>; it doesn't just <em>exist</em>. When you find a verb that does this, use it.</p>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">14</span>Nominalisation</div>
+      <div class="original-sentence">The development of effective communication skills is essential for success in the workplace.</div>
+      <p class="prompt-q">Improve it. Then improve it again. Then forget the words entirely and ask: what is this sentence actually saying?</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">Developing effective communication skills is crucial for workplace success.</div>
+        <span class="correction-label better-label">Better</span>
+        <div class="corrected-sentence better">Workplaces thrive when staff can communicate well with one another.</div>
+        <p class="explainer">The first version frees the nominalisation. The second version uses the Friend Test.</p>
+        <p class="explainer">Ask yourself: what is this sentence actually saying? Not what words are on the page — what is the meaning? Communication skills → being able to talk to people effectively. Essential for success in the workplace → workplaces do better when their people can communicate. Now say that directly: <em>Workplaces thrive when staff can communicate well.</em></p>
+        <p class="explainer">The subject shifts from the skill to the setting — and the sentence becomes something you might actually say out loud to someone. That is usually a sign you're getting closer to the real thing.</p>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">15</span>Passive voice</div>
+      <div class="original-sentence">The announcement of the winner of the competition will be made at the conclusion of the event.</div>
+      <p class="prompt-q">Four nouns stacked. One verb hiding among them.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">We will announce the competition winner when the event concludes.</div>
+        <p class="explainer"><em>Announcement</em> → <em>announce</em>. <em>At the conclusion of</em> → <em>when... concludes</em>. Two further nominalisations freed. The sentence halves in length.</p>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">16</span>Passive voice + heavy noun phrases</div>
+      <div class="original-sentence">The decision on the allocation of funds for the new project will be made by the board of directors at their next meeting.</div>
+      <p class="prompt-q">The agent is buried at the end. Move them to the front.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">At their next meeting, the board of directors will decide how to allocate funds for the new project.</div>
+        <p class="explainer">Fronting the agent (<em>the board of directors</em>) and converting <em>the decision on the allocation of</em> to <em>decide how to allocate</em> — the sentence becomes active and clear about who is responsible for what.</p>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="vignette">
+      <div class="cat-label"><span class="item-num">17</span>Passive voice + nominalisation</div>
+      <div class="original-sentence">The investigation of the effects of the new drug on the progression of the disease was conducted by the research team.</div>
+      <p class="prompt-q">The agent is at the end. The verb is hidden in a noun. Classic double pattern.</p>
+      <button class="reveal-btn">↓ Correction</button>
+      <div class="reveal" style="display:none">
+        <span class="correction-label">Corrected</span>
+        <div class="corrected-sentence">The research team investigated how the new drug affects disease progression.</div>
+        <p class="explainer">Agent moves to front. <em>Investigation</em> → <em>investigated</em>. <em>The effects of... on the progression of</em> → <em>how... affects... progression</em>. Fifteen words become ten.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ YOUR OWN WORK ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Your Turn</span>
+    <h2 class="section-title">Find it in your method draft.</h2>
+    <p class="open-now">You have your method draft in front of you. Open it now.</p>
+
+    <div class="activity-card">
+      <p style="font-weight:600; text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--terracotta); margin:0 0 1rem 0;">Your task</p>
+      <ol>
+        <li>Read through your method section and identify <strong>five sentences</strong> that contain either a nominalisation, passive voice, phantom attribution, or any combination of the three.</li>
+        <li>Copy each one into a separate document.</li>
+        <li>Write an improved version of each sentence.</li>
+        <li>If you can, write a <em>better</em> version — not just corrected, but genuinely stronger. Apply the Friend Test: how would you explain this to someone out loud?</li>
+        <li>If you finish early, swap with the person next to you and improve their sentences further.</li>
+      </ol>
+      <p class="closer-line">The goal is not to rewrite your entire method right now. It is to build a reflex — to start noticing these patterns in your own writing so that when you come back to edit, you know what to look for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CLOSING ══════════ -->
+<section class="bg-navy">
+  <div class="container close-stack">
+    <div class="quote">Good writing is a form of respect for your reader.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.dataset.label = btn.textContent;
+    btn.addEventListener('click', () => {
+      const reveal = btn.nextElementSibling;
+      const hidden = reveal.style.display === 'none';
+      reveal.style.display = hidden ? 'block' : 'none';
+      btn.textContent = hidden ? '↑ Hide' : btn.dataset.label;
+    });
+  });
+</script>
+
+</body>
+</html>

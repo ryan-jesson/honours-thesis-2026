@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Class Materials — Honours Thesis · UQ Psychology 2026</title>
+<link rel="stylesheet" href="nav.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  /* Palette and typography mirror the class pages exactly. */
+  :root {
+    --cream:        #FAF7F2;
+    --warm:         #F0EBE3;
+    --navy:         #1C2B4A;
+    --navy-lift:    #2A3B5F;
+    --terracotta:   #C2622D;
+    --white:        #FFFFFF;
+    --ink:          #1C2B4A;
+    --muted-ink:    rgba(28,43,74,0.65);
+    --muted-white:  rgba(255,255,255,0.72);
+    --shadow:       0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lift:  0 6px 24px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section frame ──────────────────────────────────────────── */
+  section {
+    padding: 4.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section > .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-warm  { background: var(--warm);  color: var(--ink); }
+
+  /* ── Type ───────────────────────────────────────────────────── */
+  h1, h2, h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.25rem;
+  }
+
+  p { margin: 0 0 1rem 0; }
+  .lede { font-size: 1.15rem; }
+  .lede:last-child { margin-bottom: 0; }
+
+  /* ── Hero (smaller than the 90vh week-page heroes) ──────────── */
+  .landing-hero {
+    min-height: 40vh;
+    text-align: center;
+  }
+  .landing-hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+  }
+  .landing-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.6rem);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+  }
+  .landing-hero .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    color: var(--muted-ink);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ── Weeks card grid ────────────────────────────────────────── */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    margin-top: 0.5rem;
+  }
+  .week-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .week-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+  .week-card-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+  .week-card-title {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 0.75rem 0;
+  }
+  .week-card-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted-ink);
+    margin: 0;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  .site-footer {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 3.5rem 2rem;
+  }
+  .site-footer .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    section { padding: 3.5rem 1.25rem; }
+    .week-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .week-card { padding: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="bg-warm landing-hero">
+  <div class="container">
+    <div class="eyebrow">Honours Thesis · UQ Psychology 2026</div>
+    <h1>Class Materials</h1>
+    <div class="hero-sub">Weekly outcome documents from our Honours Thesis classes — co-taught by Ryan Jesson and Alice Towler.</div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">Outcome documents, not slide decks.</h2>
+    <p class="lede">Each page on this site is a self-contained outcome document, distilling the discussion from one of our weekly classes into a study reference you can return to as you write. These are not slide decks. They are designed to be read independently, in your own time, after the class they correspond to.</p>
+    <p class="lede">New weeks appear here as they are completed. The tabs above let you move between them.</p>
+  </div>
+</section>
+
+<!-- ══════════ WEEKS ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Available Weeks</span>
+    <h2 class="section-title">The weeks so far.</h2>
+    <div id="week-cards" class="week-grid"></div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+  <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+</footer>
+
+<!-- Week cards render from the same manifest as the nav (see nav.js). -->
+<script>
+  (function () {
+    var mount = document.getElementById('week-cards');
+    if (!mount || !window.SITE_PAGES) return;
+    mount.innerHTML = window.SITE_PAGES.map(function (page) {
+      return '<a class="week-card" href="' + page.file + '">' +
+               '<span class="week-card-label">' + page.week + '</span>' +
+               '<h3 class="week-card-title">' + page.label + '</h3>' +
+               '<p class="week-card-desc">' + page.description + '</p>' +
+             '</a>';
+    }).join('');
+  })();
+</script>
+
+</body>
+</html>

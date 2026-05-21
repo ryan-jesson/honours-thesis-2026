@@ -1,0 +1,8 @@
+# Internal planning / facilitator docs — not for publication
+files/
+week12_class_spec.md
+week12_class_outcome_spec.md
+
+# Local tooling and OS files
+.claude/
+.DS_Store

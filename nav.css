@@ -1,0 +1,79 @@
+/* ============================================================
+   nav.css — shared site navigation for the class-materials site
+   ------------------------------------------------------------
+   Palette mirrors the CSS variables used by the class pages:
+     cream #FAF7F2 · navy #1C2B4A · terracotta #C2622D
+   Everything here is scoped under #site-nav, so including this
+   stylesheet cannot affect a page's own layout or styles.
+   ============================================================ */
+
+#site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #FAF7F2;
+  border-bottom: 1px solid rgba(28, 43, 74, 0.12);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.site-nav-inner {
+  max-width: 900px;        /* matches the .container width on the pages */
+  margin: 0 auto;
+  height: 60px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* ── Left: site title, acting as the home link ─────────────── */
+.site-nav-home {
+  flex-shrink: 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: #1C2B4A;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s;
+}
+.site-nav-home:hover { color: #C2622D; }
+
+/* ── Right: the week tabs, rendered from the manifest ──────── */
+.site-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  min-width: 0;            /* allows the row to shrink so it can scroll */
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.site-nav-tabs::-webkit-scrollbar { display: none; }
+
+.site-nav-tab {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(28, 43, 74, 0.6);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.45rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+.site-nav-tab:hover { color: #C2622D; }
+
+/* Active tab — terracotta underline plus a shift to full-navy text */
+.site-nav-tab.active {
+  color: #1C2B4A;
+  border-bottom-color: #C2622D;
+}
+
+/* ── Responsive: on narrow viewports the tabs scroll sideways ─ */
+@media (max-width: 640px) {
+  .site-nav-inner { height: 56px; padding: 0 1.25rem; gap: 1rem; }
+  .site-nav-home  { font-size: 1.05rem; }
+  .site-nav-tabs  { gap: 1.4rem; }
+}

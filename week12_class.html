@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writing Your Introduction — Honours Thesis · Week 12</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream:        #FAF7F2;
+    --warm:         #F0EBE3;
+    --navy:         #1C2B4A;
+    --navy-lift:    #2A3B5F;
+    --navy-border:  rgba(255,255,255,0.18);
+    --terracotta:   #C2622D;
+    --terracotta-soft: #FDF3EE;
+    --reveal-bg:    #FFF8F5;
+    --white:        #FFFFFF;
+    --ink:          #1C2B4A;
+    --muted-ink:    rgba(28,43,74,0.65);
+    --muted-white:  rgba(255,255,255,0.72);
+    --shadow:       0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lift:  0 6px 24px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section frame ──────────────────────────────────────────── */
+  section {
+    min-height: 90vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section > .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-warm  { background: var(--warm);  color: var(--ink); }
+  .bg-navy  { background: var(--navy);  color: var(--white); }
+
+  /* ── Type ───────────────────────────────────────────────────── */
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom: 1.25rem;
+  }
+  .bg-navy .section-title { color: var(--white); }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--muted-white);
+    margin: 0 0 3rem 0;
+    max-width: 740px;
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+  .bg-cream .subtitle, .bg-warm .subtitle { color: var(--muted-ink); }
+
+  p { margin: 0 0 1rem 0; }
+  .lede { font-size: 1.15rem; }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero { text-align: center; }
+  .hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(3.2rem, 7vw, 5.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    color: var(--muted-white);
+    margin-bottom: 5rem;
+  }
+  .hero .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-navy {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* ── Reveal button ──────────────────────────────────────────── */
+  .reveal-btn {
+    display: block;
+    margin: 2rem auto;
+    background: transparent;
+    border: 2px solid var(--terracotta);
+    color: var(--terracotta);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .reveal-btn:hover {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .reveal {
+    background: var(--reveal-bg);
+    border-radius: 1rem;
+    padding: 2rem 2.25rem;
+    margin-top: 1rem;
+  }
+  .reveal h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--navy);
+  }
+  .reveal p { font-size: 1.02rem; line-height: 1.65; }
+  .reveal blockquote {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .reveal em.tag {
+    display: block;
+    margin-top: 1rem;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  /* ── Socratic question blocks ──────────────────────────────── */
+  .q-stack { width: 100%; }
+  .q-block {
+    border-top: 1px solid rgba(28,43,74,0.12);
+    padding: 3rem 0 2rem;
+  }
+  .q-block:first-child { border-top: 0; padding-top: 0; }
+  .q-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .q-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+  }
+  .facilitator-note {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--muted-ink);
+    background: rgba(28,43,74,0.04);
+    border-left: 2px solid rgba(28,43,74,0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.4rem 0.4rem 0;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.55;
+  }
+  .facilitator-note .fn-label {
+    display: block;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: rgba(28,43,74,0.5);
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── Option cards (Three Options section) ──────────────────── */
+  .option-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .option-card h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .option-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(28,43,74,0.07);
+  }
+  .option-row:first-of-type { border-top: 0; }
+  .option-row .lbl {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    padding-top: 0.2rem;
+  }
+  .option-row .val { font-size: 1.02rem; line-height: 1.6; }
+
+  .callout {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 1rem 1rem 0;
+    padding: 2rem 2.25rem;
+    box-shadow: var(--shadow);
+    margin-top: 2.5rem;
+  }
+  .callout h3 {
+    font-size: 1.45rem;
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+  }
+  .callout p { font-size: 1rem; line-height: 1.65; }
+
+  .choose-block {
+    margin-top: 3rem;
+    text-align: left;
+  }
+  .choose-block h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .choose-block p { font-size: 1.05rem; line-height: 1.7; }
+
+  /* ── Concept preamble ──────────────────────────────────────── */
+  .concept-block { margin-bottom: 3rem; }
+  .concept-block h3 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin: 0 0 1rem 0;
+  }
+  .bg-navy .concept-block { color: var(--muted-white); }
+  .bg-navy .concept-block p { color: var(--muted-white); }
+  .example-inset {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .example-inset .ex-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 0.5rem 0 0.25rem 0;
+  }
+  .example-inset .ex-label:first-child { margin-top: 0; }
+
+  .principle-card {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem 2.25rem;
+    margin-top: 2rem;
+    color: var(--white);
+  }
+  .principle-card h4 {
+    font-size: 1.3rem;
+    color: var(--terracotta);
+    margin: 0 0 0.75rem 0;
+  }
+  .principle-card p { color: var(--muted-white); font-size: 1rem; line-height: 1.7; margin: 0; }
+
+  /* ── Sentence practice vignette ────────────────────────────── */
+  .vignette {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    width: 100%;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .vignette .cat-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--terracotta);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .vignette .item-num {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: var(--muted-ink);
+    font-weight: 600;
+    margin-right: 0.75rem;
+  }
+  .original-sentence {
+    background: var(--cream);
+    border-left: 3px solid rgba(28,43,74,0.18);
+    padding: 1.1rem 1.4rem;
+    margin: 0.5rem 0 1.25rem 0;
+    font-family: 'Georgia', 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--ink);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+  }
+  .vignette .prompt-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin: 1.25rem 0 0 0;
+    line-height: 1.4;
+  }
+  .corrected-sentence {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 0 0 1rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--navy);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .corrected-sentence.better {
+    border-left-color: var(--navy);
+    background: var(--terracotta-soft);
+  }
+  .correction-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+  }
+  .correction-label.better-label { color: var(--navy); }
+  .reveal .explainer { margin-top: 0.5rem; font-size: 1rem; line-height: 1.65; color: var(--ink); }
+
+  /* ── Your Own Work numbered list ───────────────────────────── */
+  .activity-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    color: var(--ink);
+    box-shadow: var(--shadow-lift);
+    margin-top: 2rem;
+  }
+  .activity-card ol {
+    list-style: none;
+    counter-reset: lc;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  .activity-card ol li {
+    counter-increment: lc;
+    padding: 0.85rem 0;
+    padding-left: 2.75rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    border-top: 1px solid rgba(28,43,74,0.06);
+  }
+  .activity-card ol li:first-child { border-top: 0; }
+  .activity-card ol li::before {
+    content: counter(lc);
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    color: var(--terracotta);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    width: 2rem;
+  }
+  .activity-card .closer-line {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(28,43,74,0.1);
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .open-now {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* ── Closing ────────────────────────────────────────────────── */
+  .close-stack { text-align: center; }
+  .close-stack .quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 880px;
+    margin: 0 auto 4rem;
+  }
+  .close-stack .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Inline emphasis inside reveals ───────────────────────── */
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  .reveal ul {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .reveal ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* ── Alice quote callout (in concept preamble) ─────────────── */
+  .alice-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    color: var(--terracotta);
+    border-left: 4px solid var(--terracotta);
+    padding: 1.6rem 2rem;
+    margin: 2.5rem 0 2rem;
+    line-height: 1.4;
+    background: rgba(194,98,45,0.08);
+    border-radius: 0 1rem 1rem 0;
+  }
+  .alice-quote .attr {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    color: var(--muted-white);
+    margin-top: 1rem;
+  }
+
+  /* ── Resource link (video) ────────────────────────────────── */
+  .resource-link {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1rem;
+    color: var(--muted-white);
+  }
+  .resource-link .res-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-right: 0.6rem;
+  }
+  .resource-link a {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-color: rgba(194,98,45,0.55);
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .resource-link a:hover {
+    text-decoration-color: var(--terracotta);
+    color: var(--terracotta);
+  }
+  .resource-link .meta {
+    color: var(--muted-white);
+    font-style: italic;
+    margin-left: 0.4rem;
+  }
+
+  /* ── Inline rule callout (the "never use utilise" warning) ── */
+  .rule-callout {
+    background: rgba(194,98,45,0.12);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0;
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .rule-callout strong { color: var(--terracotta); }
+
+  /* ── Phantom attribution examples list ─────────────────────── */
+  .phantom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 1.25rem 0;
+  }
+  .phantom-list li {
+    padding: 0.45rem 0 0.45rem 1.5rem;
+    position: relative;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+  .phantom-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--terracotta);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ── Friend Test standalone block ──────────────────────────── */
+  .friend-test {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.5rem;
+    padding: 2.25rem 2.5rem;
+    margin-top: 3rem;
+    color: var(--white);
+  }
+  .friend-test .ft-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+  .friend-test h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin: 0 0 1.25rem 0;
+  }
+  .friend-test p {
+    color: var(--muted-white);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .friend-test p:last-child { margin-bottom: 0; }
+  .friend-test em { font-style: italic; }
+
+  /* ── "Important" highlight row in option card ─────────────── */
+  .option-row.important {
+    background: var(--terracotta-soft);
+    border-radius: 0.6rem;
+    padding: 0.85rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .option-row.important .lbl { color: var(--terracotta); }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    .vignette, .card, .option-card, .activity-card, .callout, .friend-test { padding: 1.75rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero .hero-sub { margin-bottom: 3rem; }
+    .option-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="bg-navy">
+  <div class="container hero">
+    <div class="eyebrow">Honours Thesis · Week 12</div>
+    <h1>Writing Your Introduction</h1>
+    <div class="hero-sub">Selective, not exhaustive. Strategic, not summary.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<!-- ══════════ PROVOCATION ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Provocation</span>
+    <h2 class="section-title">Your introduction is not a funnel.</h2>
+    <p class="lede">Over the years you have probably heard that your introduction should be shaped like a big funnel — broad at the top, gradually narrowing, with your research question revealed at the bottom.</p>
+    <p class="lede">That is bad advice. Bad, bad, bad.</p>
+    <p>The funnel approach treats the whole introduction as one slow reveal. It asks your reader to wade through paragraphs of literature without knowing why they are reading any of it, holding everything in their head in case it turns out to matter, and then — finally, at the end — you tell them what your study is about. By that point they are exhausted, confused, and dreading the rest of your thesis.</p>
+    <p>A good introduction does the opposite. It tells your reader what the question is <em>early</em>, then uses the rest of the introduction to build the argument for why that question matters and what answer you expect.</p>
+    <p>This document walks you through the architecture of an introduction that works, then zooms into the section that does the most work of all: the <strong>roadmap paragraph</strong>.</p>
+  </div>
+</section>
+
+<!-- ══════════ PART ONE INTRO ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">The shape of an introduction.</h2>
+    <p class="lede">Before you write a single sentence of your own introduction, you need to know what an introduction <em>is</em>. It is not a literature summary. It is not a demonstration of how much you have read. It is an argument with a particular shape — three structurally distinct sections, each doing different work.</p>
+    <p class="lede">Part One walks through the whole shape. We look at what bad introductions do, what good ones do instead, and where the most important piece of your material — last year's study — has to appear within that structure.</p>
+  </div>
+</section>
+
+<!-- ══════════ PRINCIPLES ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Principles</span>
+    <h2 class="section-title">Things to carry through everything that follows.</h2>
+    <p class="lede">A few principles from the thesis writing guide that thread through every decision in this document. Keep these in your peripheral vision as you read on.</p>
+
+    <div class="principle-card">
+      <h4>Every sentence earns its place.</h4>
+      <p>If you cannot say what work a sentence is doing for the reader, that sentence does not belong in your introduction. This is the single most-used test from this point forward.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>An introduction is a story, not a summary.</h4>
+      <p>Every sentence has a reason for being where it is. The introduction reads as one coherent argument with momentum, not a sequence of "Smith did this; then Jones did this; then someone else did this." If your introduction reads as a list, it is not yet an introduction.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Selection is the demonstration.</h4>
+      <p>Many students think they need to demonstrate how much they have read by including all of it. The opposite is true. By presenting a clear, coherent narrative and selecting only what supports it, you demonstrate that you have read broadly <em>and</em> that you can identify what is relevant. Showing everything is not a flex. Showing the <em>right</em> things is.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Paragraphs are arguments.</h4>
+      <p>Each paragraph should be able to stand as its own argument. The topic sentence sets up what the paragraph is doing. The body delivers it. The ending sentence links back or moves you forward. One student in class called this the "sandwich" — the topic sentence and the closing sentence hold the body together. Use the sandwich.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Signposting is free real estate.</h4>
+      <p>The same content with explicit signposting reads dramatically better than the same content without it. <em>"In this study, we therefore…"</em> / <em>"We will return to this point when we discuss…"</em> / <em>"This is the first of two related findings…"</em> Sentences like these cost almost nothing and save your reader enormous mental effort. Use them generously.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THE BAD INTRO ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">The Wrong Shape</span>
+    <h2 class="section-title">A single, slow funnel.</h2>
+    <p class="lede">Most weak introductions fail in the same way. They treat the entire introduction as one big funnel, opening on something broad and vague, meandering through the literature for several pages, and saving the research question for a final reveal. Here is what that produces in each section.</p>
+
+    <div class="principle-card">
+      <h4>The Broad Introductory Paragraph</h4>
+      <ul>
+        <li>The reader gets a broad sense of the topic area, because the paragraph talks about something general — <em>traumatic events</em>, say.</li>
+        <li>The introduction is treating itself as one big funnel, so this opening paragraph is not very specific about anything.</li>
+        <li>Is the thesis about the <em>accuracy of memory</em> for traumatic events? About <em>therapy</em> for people who have experienced them? About something else entirely? The reader cannot tell.</li>
+        <li>The reader has to wait until the end of the introduction for the big reveal of what the study is actually about. Readers love suspense.</li>
+      </ul>
+    </div>
+
+    <div class="principle-card">
+      <h4>The Body</h4>
+      <ul>
+        <li>The body meanders through the literature.</li>
+        <li>The reader does not know <em>why</em> they are being told this information.</li>
+        <li>They do not know what is important and what is not, so they try to keep all of it in their head, in case any of it turns out to matter.</li>
+        <li>The reader gets worn out, because they are doing a lot of mental work that you should be doing for them.</li>
+        <li>Suddenly the topic changes to something else, and the reader does not know why. Now they are confused, and in a bad mood, and they are only halfway through your introduction.</li>
+      </ul>
+    </div>
+
+    <div class="principle-card">
+      <h4>The Point</h4>
+      <ul>
+        <li>The point of the study is finally revealed. Hooray.</li>
+        <li>The reader is dreading reading the rest of the thesis.</li>
+      </ul>
+    </div>
+
+    <p class="lede" style="margin-top:2.5rem;">The reader of a bad introduction finishes the section feeling stupid. The reader of a good introduction finishes feeling smart. <em>Your job is to make your reader feel smart.</em> That is the single sharpest test you can apply to any sentence you draft.</p>
+  </div>
+</section>
+
+<!-- ══════════ THE GOOD INTRO ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">The Right Shape</span>
+    <h2 class="section-title">Three sections, three jobs.</h2>
+    <p class="lede">A functional introduction is three structurally distinct sections, each doing different work. Only the first behaves like a funnel — the other two have entirely different shapes. Here is what each does.</p>
+
+    <div style="margin-top:3rem;">
+
+      <div class="option-card">
+        <h3>Introduction to the Introduction · The Roadmap Paragraph</h3>
+        <p class="lede">The most important section of your introduction — and arguably the most important section of your thesis. Ryan's preferred name for it is the <strong>roadmap paragraph</strong>, because it is a brief, ordered representation of everything the rest of the introduction unpacks. We use that term for the rest of this document.</p>
+        <div class="option-row">
+          <div class="lbl">Job</div>
+          <div class="val">Tell the reader exactly what problem you are addressing.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">How it opens</div>
+          <div class="val">Present the problem. Explain it. Mention why it is an important question to solve.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">How it ends</div>
+          <div class="val">With an explicit, unambiguous statement of your research question.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Example phrasings</div>
+          <div class="val"><em>"In this study, we therefore investigate whether…"</em>&nbsp;·&nbsp;<em>"Finding ways to improve the accuracy of x is therefore of upmost importance."</em></div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">The shape</div>
+          <div class="val">You go from your 'entry point' (the broad way in) to your exact research question, in no more than two paragraphs. <em>This</em> is the section that behaves like a funnel.</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <h3>The Body</h3>
+        <div class="option-row">
+          <div class="lbl">Job</div>
+          <div class="val">Look to the literature for clues about what you will find when you investigate your research question.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Why this section now works</div>
+          <div class="val">The reader already knows what your research question is. Now they know <em>why</em> you are telling them all this information.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Structure</div>
+          <div class="val">Use headings and sub-headings. Topics from one section to the next do not have to follow directly on from each other — they should be ordered <em>logically</em>, not necessarily as a funnel.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Sections you might have</div>
+          <div class="val">Why the problem exists. Previous attempts to address it. Factors you think might be involved.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Sections you might also have</div>
+          <div class="val">Introducing the methods used to investigate this kind of problem. The way this kind of research is typically analysed. Tell the reader why you will — or will not — be using that method or analysis in your project.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Example phrasings</div>
+          <div class="val"><em>"We will therefore use the x paradigm in this study."</em>&nbsp;·&nbsp;<em>"In this study, we will therefore collect both x and y judgements."</em></div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">If you have hypotheses</div>
+          <div class="val">If your research question has sub-parts or specific hypotheses that need background, present the background in sections ordered the same way as the sub-parts/hypotheses. State each hypothesis as you go.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Throughout</div>
+          <div class="val">In every section, tell the reader exactly why the information you have just presented is relevant to your study.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Headings, opinions vary</div>
+          <div class="val">Some supervisors (including Alice) like headings and sub-headings in the body. Others (including Ryan) prefer to do without. The body works either way. Choose what helps your specific argument breathe — there is no one right answer here.</div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <h3>The Current Study</h3>
+        <div class="option-row">
+          <div class="lbl">Remind</div>
+          <div class="val">Remind the reader what your research question is.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Explain how</div>
+          <div class="val">Briefly explain how you are going to address it — i.e. your method. No need to go into detail about <em>why</em> you have chosen to do things, because you have explained that above. Here, you are just packaging it all together in a short, neat bundle.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Then</div>
+          <div class="val">State your hypotheses — if you have them.</div>
+        </div>
+        <div class="option-row">
+          <div class="lbl">Don't pre-empt your findings</div>
+          <div class="val">If your design includes measures whose outcomes are exploratory (like the think-aloud data in this study), do not write hypotheses for those measures as though you know what you will find. Use language like <em>"we will use the think-aloud data to explore whether…"</em> — exploratory, not predictive.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <h3>Disclaimer.</h3>
+      <p>This is general advice. This structure may not suit every project, and your supervisor may give you different advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHERE LAST YEAR'S STUDY APPEARS ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Placement</span>
+    <h2 class="section-title">Last year's study appears in two places.</h2>
+    <p class="lede">Towler &amp; Jesson (2025) — last year's study — is not a single mention buried somewhere in your introduction. It does work in two different places, and the work is different in each.</p>
+
+    <div style="margin-top:3rem;">
+
+      <div class="option-card">
+        <h3>Place 1 · In the roadmap paragraph (light touch)</h3>
+        <p>This appearance is <strong>non-negotiable</strong>. The reason your research question exists at all is that last year's study established the phenomenon — super-recognisers significantly outperformed police officers and controls in a live face-in-crowd identification task. Without that finding sitting visibly in the reader's mind, the question <em>"how are super-recognisers achieving this advantage?"</em> does not have anywhere to land.</p>
+        <p>In the roadmap, this is a <strong>light touch</strong>. Usually one sentence, occasionally two. Something like:</p>
+        <p><em>"In a live face-in-crowd identification task, Towler &amp; Jesson (2025) found that super-recognisers performed significantly more accurately than police officers and controls."</em></p>
+        <p>That sentence establishes the phenomenon and creates the gap. It does not need to do more than that here. Detail comes later.</p>
+      </div>
+
+      <div class="option-card">
+        <h3>Place 2 · At the end of the body, or in the current study section</h3>
+        <p>This is where the fleshed-out version goes. You have a choice between two equally good placements, and the choice depends on how you want to allocate your word budget.</p>
+        <p><strong>End-of-body approach.</strong> You have just spent the body looking to the literature for clues about what might drive the accuracy difference. At the end, you flesh out last year's study — the paradigm details, the trial structure, the sample. This sets you up to enter the current study section already having shown what last year did, so the current study section can focus on <em>what you are doing differently and why</em>.</p>
+        <p><strong>Current-study-section approach.</strong> Leave last year's study until the current study. The structure becomes: <em>"Last year we did this; this year we are doing something similar but with these specific changes, for these reasons."</em> Tighter, more compact, often saves words overall.</p>
+        <p>Both work. What does <em>not</em> work is putting the fleshed-out version in the middle or start of the body — it sits too far from the current study, and the reader loses the thread between the prior study and your method.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PART TWO INTRO ══════════ -->
+<section class="bg-navy">
+  <div class="container">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The roadmap paragraph.</h2>
+    <p class="subtitle">The section that does the most work in your whole thesis.</p>
+  </div>
+</section>
+
+<!-- ══════════ WHAT THE ROADMAP DOES ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Function</span>
+    <h2 class="section-title">What the roadmap is doing.</h2>
+    <p class="lede">The roadmap paragraph has to move your reader from <em>"I know absolutely nothing about this topic"</em> to <em>"I now understand exactly what question this thesis is asking, and I see why it is worth asking."</em> It has to do that in <strong>one paragraph, ideally two — never more.</strong> Target 150 to 200 words. Maximum half a page. If you have written a "paragraph" that fills a page, you have not written a paragraph.</p>
+    <p>Ryan calls this the <strong>roadmap paragraph</strong> because, structurally, it is a brief representation of everything the rest of the introduction unpacks. If you took the topic sentence of every paragraph in your body, mashed them together in order, and tidied them into prose — that is roughly what the roadmap paragraph is. Each sentence of the roadmap points at something that gets fleshed out later.</p>
+    <p>This is also the <strong>only place in your introduction where you should find a funnel.</strong> Broad to specific, ideally in one paragraph. After this, the funnel goes in the bin. The body is argumentative, not funnel-shaped. The current study section is a compact bundle, not funnel-shaped either.</p>
+
+    <div class="callout">
+      <h3>One thing worth knowing about specificity.</h3>
+      <p>How specific your roadmap can be is bought by how specific your scope is. If you have chosen to focus only on accuracy and the recognition memory test — your roadmap can already be specific about mental representations from the outset, because that is your scope. If you have kept all three measures (accuracy, memory, and think-aloud), your roadmap stays broader — your research question is then about <em>how</em> super-recognisers and controls differ, more generally, and specificity comes in the body.</p>
+      <p>Specificity downstream is purchased by specificity in scope upstream. Choose accordingly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THE LOGIC CHAIN ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">The Chain</span>
+    <h2 class="section-title">Six steps from nothing to your research question.</h2>
+    <p class="lede">The roadmap paragraph has to establish a number of things to move the reader from nothing to your research question. Six of these are laid out below — but the order presented here is not fixed. Several variants will work equally well; some roadmap paragraphs open by introducing what super-recognisers are, for example, and build from there. What matters is not the specific sequence, but that each point connects to the next with clear logic.</p>
+    <p>It is also worth being explicit: the steps below are not necessarily <em>complete</em>. They are the structural backbone. The work of identifying what else your specific roadmap requires — and how to weave it in — is yours to do.</p>
+
+    <div class="principle-card">
+      <h4>Step 1 — Why face matching matters in the real world.</h4>
+      <p>Establish the domain. Police and other security personnel are routinely required to identify faces in crowded settings — looking for missing persons, offenders, persons of interest, at stations, stadiums, ports of entry. Other professionals do this work too. When this kind of identification goes wrong, the consequences are not abstract: wrongful arrests, missed identifications, real harm to real people. This is the <em>why we should care</em> step. Without it, nothing else has weight.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Step 2 — Errors are likely, and the task is hard.</h4>
+      <p>Even outside high-stakes settings, people are surprisingly poor at unfamiliar face matching. The task is not easy and the error rate is not tiny. Combine that with step 1, and you have a problem worth taking seriously.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Step 3 — Super-recognisers significantly outperform others in live identification tasks.</h4>
+      <p>This is where last year's study lands. Towler &amp; Jesson (2025) established that, in a live face-in-crowd identification paradigm, super-recognisers performed significantly more accurately than both police officers and controls. The phenomenon is real, and it has been demonstrated in a setting that matters.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Step 4 — We do not know how they achieve this advantage.</h4>
+      <p>The accuracy difference is established. The mechanism is not. <em>What are super-recognisers actually doing differently?</em> This is the gap your study addresses — and importantly, this is the implication of last year's study that you actually care about for <em>this</em> introduction. Other implications (concerns about policing, training, selection more broadly) belong elsewhere in the literature; the implication you carry into your roadmap is the one that motivates your own study.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Step 5 — The research question.</h4>
+      <p>State it explicitly and unambiguously. <em>"How do super-recognisers and controls differ in how they perform this task?"</em> That is the broad version. If your scope is narrower — for example, if you have dropped think-aloud and are focusing on accuracy and mental representations — your research question can already be more specific here.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Step 6 — A soft handoff to the rest of the introduction.</h4>
+      <p>End the roadmap with a brief gesture toward how you are going to investigate the question — <em>"the current study will use [methods] to investigate how super-recognisers and controls differ in how they perform this task."</em> No specific methodological detail; just a one-sentence handoff that previews what is coming in the rest of the introduction. This is optional but often produces the cleanest finish — it gives the reader a soft landing into the body, rather than leaving them suspended on the research question itself.</p>
+    </div>
+
+    <p><strong>The single hardest thing about writing the roadmap is concision.</strong> It is tempting to start explaining. <em>Why</em> this is a hard task. <em>What</em> a super-recogniser is, in detail. <em>How</em> the prior study was designed. Don't. Explanation lives in the body. The roadmap is the dot points before the prose. Aim for the one-sentence version of every step that still communicates clearly. If you have written 300 words on step 1, you have written the body.</p>
+  </div>
+</section>
+
+<!-- ══════════ WORKING WITH LAST YEAR'S STUDY ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">The Light Touch</span>
+    <h2 class="section-title">What goes in — and what stays out.</h2>
+    <p class="lede">When last year's study appears in the roadmap, it has a specific job: establish the phenomenon, fast. That dictates what to include and what to leave for later. Here is the decomposition.</p>
+
+    <div style="margin-top:3rem;">
+
+      <div class="option-card">
+        <h3>What belongs in the roadmap mention.</h3>
+        <ul>
+          <li><strong>The paradigm.</strong> That it was a <em>live face-in-crowd identification task</em> — a natural, in-the-wild setting, not a lab task. This matters because the setting is part of why the finding is interesting.</li>
+          <li><strong>The comparison groups.</strong> Super-recognisers, against police officers and controls.</li>
+          <li><strong>The finding.</strong> Reported as percentages — see the next card for the right way to do this.</li>
+          <li><strong>The gap.</strong> That we do not yet know <em>how</em> super-recognisers achieve this advantage.</li>
+          <li><strong>A brief definition of super-recognisers.</strong> Your reader cannot be assumed to know what a super-recogniser is. Define them briefly — <em>individuals with naturally superior face recognition ability</em> — and cite an appropriate source for that definition. <strong>One important caveat:</strong> do not cite Towler &amp; Jesson (2025) for the <em>definition</em> of super-recognisers. That study's purpose was demonstrating their performance in a particular setting, not establishing what super-recognisers are. Use a source whose actual purpose was the definitional work.</li>
+        </ul>
+      </div>
+
+      <div class="option-card">
+        <h3>Report the finding with anchored numbers.</h3>
+        <p>There are two ways you could report the accuracy difference. They look similar; one is much better.</p>
+        <ul>
+          <li><strong>Option A:</strong> <em>"Super-recognisers performed significantly better than controls — in fact, they performed 25% more accurately."</em></li>
+          <li><strong>Option B:</strong> <em>"Super-recognisers (85%) performed significantly more accurately than controls (75%) and police officers (65%)."</em></li>
+        </ul>
+        <p><strong>Use Option B.</strong> Two reasons:</p>
+        <ul>
+          <li>A difference number floats in space. <em>"25% better"</em> — better than <em>what</em>? The reader has no anchor. Specific group means give the reader something concrete to hold.</li>
+          <li>In the body of your introduction, you will be discussing other research where accuracy is reported as group means with percentages. Reporting last year's study the same way creates consistency. You are not switching between formats just because you reached a new study.</li>
+        </ul>
+        <p><strong>Two more reporting decisions:</strong></p>
+        <ul>
+          <li><strong>Collapse across trial types.</strong> In the roadmap, report a single overall accuracy figure per group. Do <em>not</em> split into target-present versus target-absent. The reader does not yet know what those terms mean, and introducing them costs sentences you cannot afford.</li>
+          <li><strong>Do not use signal detection language here.</strong> No hits, no misses, no correct rejections, no false alarms. Beyond the trial-type detail problem, this study did not use signal detection theory as an analytical framework, and the language would mislead the reader about what was done.</li>
+        </ul>
+      </div>
+
+      <div class="option-card">
+        <h3>What does not belong in the roadmap.</h3>
+        <p>Keep these out of the roadmap entirely. Most of them will appear later — at the end of the body, or in the current study section.</p>
+        <ul>
+          <li><strong>The aim, as a separate sentence.</strong> Phrase the prior study in terms of what was <em>found</em>, not what was <em>aimed at</em>. The aim is given for free in the findings. <em>"Towler &amp; Jesson (2025) found that super-recognisers significantly outperformed controls and police"</em> communicates the aim implicitly. Writing the aim as its own sentence costs you a sentence and earns nothing.</li>
+          <li><strong>The disguise factor.</strong> Last year's design included a disguise manipulation. This year does not. The disguise factor belongs in the end-of-body or current-study section, where it can do the work of justifying why this year's study is not a perfect replication (more on this below). It does not belong in the roadmap.</li>
+          <li><strong>Trial numbers, confederate numbers, exact locations, target-present vs target-absent splits, confidence ratings, methodological specifics.</strong> All of this is body or current-study material. The roadmap operates at the level of <em>what was done and what was found</em>, not <em>how it was implemented</em>.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <h3>A rule worth breaking explicitly.</h3>
+      <p>Some students arrive at honours believing that once you mention something, you have to keep talking about it. That is a black-and-white thinking rule, and it is wrong. The actual rule is: <em>everything you mention must be understandable.</em> Not: <em>every mention commits you to ongoing discussion.</em></p>
+      <p>This matters because when you handle the disguise factor in the end-of-body or current-study section, you do not need to belabour it. You can mention it briefly to do specific work — <em>"although Towler &amp; Jesson included a disguise factor in their design, we have not included it here, because removing it gives us more uncontaminated target-present trials per participant, which strengthens our power for the more fine-grained question we are asking"</em> — and then leave it alone. The mention earns its place by doing a specific job (justifying the partial-replication design), and it does not need anything else from you.</p>
+      <p>Frame what you <em>are</em> doing and why, not what you are <em>not</em> doing. <em>"We are doing this because…"</em> always reads stronger than <em>"we are not doing the other thing because…"</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY THIS GAP MATTERS ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">After the Question</span>
+    <h2 class="section-title">Why does this gap matter?</h2>
+    <p class="lede">Once you have stated your research question, the roadmap has one more job. You have to explain why answering this question matters. The mere existence of a gap is <em>not</em> sufficient justification for a study.</p>
+
+    <div class="q-stack">
+
+      <div class="q-block">
+        <div class="q-tag">A test you can use on your own work</div>
+        <p class="q-prompt">Read the following hypothetical rationale. Is it sufficient? <em>"To our knowledge, no study has examined face matching performance while the participant is underwater. The present study therefore investigates underwater face matching."</em></p>
+
+        <button class="reveal-btn">↓ Why this fails</button>
+        <div class="reveal" style="display:none">
+          <h3>The gap is real. Nobody <em>has</em> done underwater face matching.</h3>
+          <p>It is also a gap nobody benefits from filling.</p>
+          <p>Other gaps nobody has filled, and nobody should:</p>
+          <ul>
+            <li>The effect of face paint on face matching accuracy when the matcher is dressed as a princess.</li>
+            <li>Face matching accuracy in corridors versus rooms with the same floor area.</li>
+            <li>Whether face matching improves if the participant has just eaten exactly one banana.</li>
+          </ul>
+          <p>Each of these is a <em>real</em> gap in the literature. None of them is a <em>justification</em> for a study.</p>
+          <p><strong>A gap becomes a justification when:</strong></p>
+          <ul>
+            <li>Filling it would change what we <em>theoretically understand</em> about the phenomenon — the mechanism, the boundary conditions, who it generalises to.</li>
+            <li>Filling it would change what we <em>practically do</em> — selection, training, intervention, policy.</li>
+            <li>Or both.</li>
+          </ul>
+          <p>Apply this test to your own roadmap: when you state your research question, can you immediately articulate the theoretical or practical change that answering it would produce? If you can't, the rationale is not yet there.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="choose-block">
+      <h3>For your study, both edges are available.</h3>
+      <p><strong>Theoretical implications.</strong> If we can identify what super-recognisers do differently from controls, we move from <em>"they are better"</em> to <em>"they are better because of x."</em> That has implications for our broader understanding of expertise in face recognition — what kind of cognitive process underwrites it, whether it is a perceptual advantage, an attentional one, a representational one. This is the move from describing a phenomenon to explaining it.</p>
+      <p><strong>Practical implications — with an important nuance.</strong> Last year's study had a direct practical lens: police officers were a comparison group, and the question of how well police perform this task in the real world was a live concern. <strong>This year's study is different.</strong> We are <em>not</em> including police as a group. We are not trying to evaluate police performance. So the practical implications of <em>this</em> study cannot simply be lifted from the framing of last year's study.</p>
+    </div>
+
+    <div class="callout">
+      <h3>The nuance worth thinking carefully about.</h3>
+      <p>If our question is <em>how do super-recognisers and controls differ in how they perform this task</em>, then the practical implication is not primarily about police performance. It is about <strong>understanding the cognitive mechanism well enough to act on it</strong> — for example, refining how super-recognisers are identified, or (more speculatively) understanding what makes the task work the way it does.</p>
+      <p>This connects to a thread that was raised in class but not resolved: if face recognition turns out not to be a trainable skill, what happens to the practical case for understanding the mechanism? Worth holding in mind — there are sharp arguments on both sides, and Alice has a paper on this (<em>Can Face Recognition Be Trained</em>, 2021) worth reading.</p>
+      <p>The point for your roadmap right now: do not default to copying last year's practical-implications framing. Think specifically about what this year's study, as designed, can and cannot speak to. Then write the implications accordingly.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>On opening with a case study (optional flavour)</h4>
+      <p>Some introductions open with a brief case study — a sentence or two describing a real-world incident that puts the stakes in concrete terms. <em>"In London, on a particular day, police officers identified the wrong person and shot and killed him."</em> This is legitimate. It can land powerfully if you have the words to spare.</p>
+      <p>Two conditions if you do it. <strong>First,</strong> the case must reflect what your study is actually doing — a manhunt-style search by trained personnel — not a generic face-misidentification story. <strong>Second,</strong> it is colour, not structure. If your word budget is tight, the case study is the first thing to cut.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Don't pre-empt your findings</h4>
+      <p>If you have not yet decided which of your measures (accuracy, memory test, think-aloud) you will treat as your primary lens for answering the research question — <strong>write as if you are doing all three.</strong> Build the rationale that motivates each. Do not commit your introduction to one mechanism (e.g. "robust mental representations") before you know what you have found. The decision about which lens to lead with happens after data analysis, not before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ YOUR HOMEWORK ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Your Turn</span>
+    <h2 class="section-title">Now write yours.</h2>
+    <p class="lede">This week, your task is to write the roadmap paragraph. Not the body. Not the current study section. Just the paragraph that does the most work in your thesis.</p>
+
+    <div class="activity-card">
+      <p style="font-weight:600; text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--terracotta); margin:0 0 1rem 0;">Your task</p>
+      <ol>
+        <li><strong>Write your research question.</strong> One sentence. Specific. Read it aloud — if someone else can hear it and understand exactly what your study is asking, it is doing its job.</li>
+        <li><strong>Draft your roadmap paragraph as prose.</strong> Aim for <strong>150–200 words</strong>, ideally one paragraph, occasionally two. Maximum half a page. Use the five-step chain from Section 10 as scaffolding, but the order between steps 1 and 2 is flexible, and you can choose to end with a brief gesture toward how you will investigate the question.</li>
+        <li><strong>Sketch the section headings for the body of your introduction.</strong> Don't worry about order. Just get the headings down. These are the conceptual chunks you will build out next.</li>
+      </ol>
+      <p class="closer-line">The single hardest thing here is concision. It will feel tempting to explain. Resist. Explanation lives in the body. Every sentence in the roadmap should be a topic sentence for something you flesh out later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CLOSING ══════════ -->
+<section class="bg-navy">
+  <div class="container close-stack">
+    <div class="quote">Good introductions feel inevitable.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.dataset.label = btn.textContent;
+    btn.addEventListener('click', () => {
+      const reveal = btn.nextElementSibling;
+      const hidden = reveal.style.display === 'none';
+      reveal.style.display = hidden ? 'block' : 'none';
+      btn.textContent = hidden ? '↑ Hide' : btn.dataset.label;
+    });
+  });
+</script>
+
+</body>
+</html>
