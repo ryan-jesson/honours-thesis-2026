@@ -33,6 +33,13 @@
       file: 'week12_class.html',
       week: 'Week 12',
       description: 'The architecture of a thesis introduction, with a deep focus on the roadmap paragraph.'
+    },
+    {
+      id: 'week13',
+      label: 'Powerful Paragraphs',
+      file: 'week13_class.html',
+      week: 'Week 13',
+      description: 'Diagnosing topic sentences and building the body of your introduction, one argument per paragraph.'
     }
   ];
 

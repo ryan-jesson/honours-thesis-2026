@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Powerful Paragraphs — Honours Thesis · Week 13</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream:        #FAF7F2;
+    --warm:         #F0EBE3;
+    --navy:         #1C2B4A;
+    --navy-lift:    #2A3B5F;
+    --navy-border:  rgba(255,255,255,0.18);
+    --terracotta:   #C2622D;
+    --terracotta-soft: #FDF3EE;
+    --reveal-bg:    #FFF8F5;
+    --white:        #FFFFFF;
+    --ink:          #1C2B4A;
+    --muted-ink:    rgba(28,43,74,0.65);
+    --muted-white:  rgba(255,255,255,0.72);
+    --shadow:       0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lift:  0 6px 24px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section frame ──────────────────────────────────────────── */
+  section {
+    min-height: 90vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section > .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-warm  { background: var(--warm);  color: var(--ink); }
+  .bg-navy  { background: var(--navy);  color: var(--white); }
+
+  /* ── Type ───────────────────────────────────────────────────── */
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom: 1.25rem;
+  }
+  .bg-navy .section-title { color: var(--white); }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--muted-white);
+    margin: 0 0 3rem 0;
+    max-width: 740px;
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+  .bg-cream .subtitle, .bg-warm .subtitle { color: var(--muted-ink); }
+
+  p { margin: 0 0 1rem 0; }
+  .lede { font-size: 1.15rem; }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero { text-align: center; }
+  .hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(3.2rem, 7vw, 5.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    color: var(--muted-white);
+    margin-bottom: 5rem;
+  }
+  .hero .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-navy {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* ── Reveal button ──────────────────────────────────────────── */
+  .reveal-btn {
+    display: block;
+    margin: 2rem auto;
+    background: transparent;
+    border: 2px solid var(--terracotta);
+    color: var(--terracotta);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .reveal-btn:hover {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .reveal {
+    background: var(--reveal-bg);
+    border-radius: 1rem;
+    padding: 2rem 2.25rem;
+    margin-top: 1rem;
+  }
+  .reveal h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--navy);
+  }
+  .reveal p { font-size: 1.02rem; line-height: 1.65; }
+  .reveal blockquote {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .reveal em.tag {
+    display: block;
+    margin-top: 1rem;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+  .reveal .candidate {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 0.25rem 0 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--navy);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+  .reveal .verdict-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 1.25rem 0 0.4rem 0;
+  }
+
+  .reveal .failure-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.05rem);
+    color: var(--terracotta);
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.01em;
+  }
+  .reveal .failure-explanation {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--muted-ink);
+    font-style: italic;
+    margin: 0 0 1.75rem 0;
+  }
+
+  /* ── Socratic question blocks ──────────────────────────────── */
+  .q-stack { width: 100%; }
+  .q-block {
+    border-top: 1px solid rgba(28,43,74,0.12);
+    padding: 3rem 0 2rem;
+  }
+  .q-block:first-child { border-top: 0; padding-top: 0; }
+  .q-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .q-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+  }
+
+  /* ── Option cards (Three Options pattern) ──────────────────── */
+  .option-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .option-card h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .option-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(28,43,74,0.07);
+  }
+  .option-row:first-of-type { border-top: 0; }
+  .option-row .lbl {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    padding-top: 0.2rem;
+  }
+  .option-row .val { font-size: 1.02rem; line-height: 1.6; }
+
+  .callout {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 1rem 1rem 0;
+    padding: 2rem 2.25rem;
+    box-shadow: var(--shadow);
+    margin-top: 2.5rem;
+  }
+  .callout h3 {
+    font-size: 1.45rem;
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+  }
+  .callout p { font-size: 1rem; line-height: 1.65; }
+
+  .choose-block {
+    margin-top: 3rem;
+    text-align: left;
+  }
+  .choose-block h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .choose-block p { font-size: 1.05rem; line-height: 1.7; }
+
+  /* ── Concept preamble ──────────────────────────────────────── */
+  .concept-block { margin-bottom: 3rem; }
+  .concept-block h3 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin: 0 0 1rem 0;
+  }
+  .bg-navy .concept-block { color: var(--muted-white); }
+  .bg-navy .concept-block p { color: var(--muted-white); }
+  .example-inset {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .example-inset .ex-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 0.5rem 0 0.25rem 0;
+  }
+  .example-inset .ex-label:first-child { margin-top: 0; }
+
+  /* The bad-sentence display: a prominent example-inset variant
+     for the diagnostic sections on cream/warm backgrounds. */
+  .bg-cream .example-inset,
+  .bg-warm  .example-inset {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    color: var(--ink);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0 2.5rem 0;
+    border-radius: 0 0.75rem 0.75rem 0;
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    line-height: 1.55;
+  }
+  .bg-cream .example-inset .ex-label,
+  .bg-warm  .example-inset .ex-label {
+    color: var(--terracotta);
+  }
+
+  .principle-card {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem 2.25rem;
+    margin-top: 2rem;
+    color: var(--white);
+  }
+  .principle-card h4 {
+    font-size: 1.3rem;
+    color: var(--terracotta);
+    margin: 0 0 0.75rem 0;
+  }
+  .principle-card p { color: var(--muted-white); font-size: 1rem; line-height: 1.7; margin: 0 0 0.75rem 0; }
+  .principle-card p:last-child { margin-bottom: 0; }
+  .principle-card ul { margin: 0.5rem 0 0 0; padding-left: 1.25rem; color: var(--muted-white); }
+  .principle-card ul li { margin-bottom: 0.5rem; line-height: 1.6; font-size: 1rem; }
+
+  /* Three-up principle-card row for the Reactivate section */
+  .principle-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .principle-row .principle-card { margin-top: 0; }
+
+  /* ── Activity card ─────────────────────────────────────────── */
+  .activity-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    color: var(--ink);
+    box-shadow: var(--shadow-lift);
+    margin-top: 2rem;
+  }
+  .activity-card ol {
+    list-style: none;
+    counter-reset: lc;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+  .activity-card ol li {
+    counter-increment: lc;
+    padding: 0.85rem 0;
+    padding-left: 2.75rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    border-top: 1px solid rgba(28,43,74,0.06);
+  }
+  .activity-card ol li:first-child { border-top: 0; }
+  .activity-card ol li::before {
+    content: counter(lc);
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    color: var(--terracotta);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    width: 2rem;
+  }
+  .activity-card .closer-line {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(28,43,74,0.1);
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  /* Section-level closer-line (used at the foot of each diagnostic) */
+  .closer-line {
+    margin: 2.5rem 0 0 0;
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .open-now {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* ── Diagnostic recap list (Section 10) ───────────────────── */
+  .diagnostic-recap {
+    list-style: none;
+    counter-reset: dr;
+    padding: 0;
+    margin: 2.5rem 0 0 0;
+    background: var(--white);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 2.25rem;
+  }
+  .diagnostic-recap li {
+    counter-increment: dr;
+    padding: 1.1rem 0 1.1rem 3.25rem;
+    position: relative;
+    line-height: 1.55;
+    font-size: 1.05rem;
+    border-top: 1px solid rgba(28,43,74,0.07);
+  }
+  .diagnostic-recap li:first-child { border-top: 0; }
+  .diagnostic-recap li::before {
+    content: counter(dr);
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    color: var(--terracotta);
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    line-height: 1;
+    width: 2.5rem;
+    text-align: left;
+  }
+  .diagnostic-recap li strong { color: var(--navy); }
+
+  /* ── Closing ────────────────────────────────────────────────── */
+  .close-stack { text-align: center; }
+  .close-stack .quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 880px;
+    margin: 0 auto 4rem;
+  }
+  .close-stack .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Inline emphasis inside reveals ───────────────────────── */
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  .reveal ul {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .reveal ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    .card, .option-card, .activity-card, .callout { padding: 1.75rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero .hero-sub { margin-bottom: 3rem; }
+    .option-row { grid-template-columns: 1fr; gap: 0.25rem; }
+    .principle-row { grid-template-columns: 1fr; gap: 1rem; }
+    .diagnostic-recap { padding: 1rem 1.25rem; }
+  }
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="bg-navy">
+  <div class="container hero">
+    <div class="eyebrow">Honours Thesis · Week 13</div>
+    <h1>Powerful Paragraphs</h1>
+    <div class="hero-sub">Every paragraph is an argument. The topic sentence is where it starts.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<!-- ══════════ REACTIVATE ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Reactivate</span>
+    <h2 class="section-title">You already know what a paragraph should look like.</h2>
+    <p class="lede">Before we begin, a brief reminder of what you have already read in the thesis writing guide. We are not going to re-teach it. We are going to use it.</p>
+
+    <div class="principle-row">
+      <div class="principle-card">
+        <h4>Topic sentence</h4>
+        <ul>
+          <li>The first sentence of the paragraph.</li>
+          <li>States the argument the paragraph is going to make. One argument, clearly.</li>
+          <li>Not a definition, not a citation, not a topic announcement.</li>
+        </ul>
+      </div>
+
+      <div class="principle-card">
+        <h4>Supporting sentences</h4>
+        <ul>
+          <li>The body of the paragraph.</li>
+          <li>Uses evidence, logic, and examples to defend the argument.</li>
+          <li>Every sentence is doing visible work in support of the topic sentence.</li>
+        </ul>
+      </div>
+
+      <div class="principle-card">
+        <h4>Concluding sentence</h4>
+        <ul>
+          <li>The last sentence of the paragraph.</li>
+          <li>Closes off the argument and opens the door to the next paragraph, section, or aim.</li>
+          <li>Carries the reader forward.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PART ONE INTRO ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Part One</span>
+    <h2 class="section-title">Diagnosing topic sentences.</h2>
+    <p class="lede">If a topic sentence is one that makes an argument, what does a <em>good</em> topic sentence look like? The most useful way to answer this question is the inverse: what does a <em>bad</em> topic sentence look like, and why?</p>
+    <p class="lede">We will work through six examples. Each one is the kind of sentence a thoughtful honours student might actually write. Each one looks plausible on the surface. Each one fails in a different way — and each failure is a separate lesson about what topic sentences are for. For each example, we will iterate the sentence forward together until it does its job.</p>
+    <p class="lede">Each of the six examples is designed to demonstrate one particular way of getting a topic sentence wrong. But it's worth saying upfront: no single example can perfectly exemplify what's right or wrong, because what a topic sentence looks like is always shaped by the context it lands in within <em>your</em> particular thesis. Treat these as illustrations of principles, not as sentences to copy.</p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 1 ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Example 1</span>
+    <h2 class="section-title">Example 1.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      Although unfamiliar face matching is a notoriously difficult task in laboratory studies, comparatively little research has examined how this performance generalises to crowded real-world settings, where super-recognisers may hold a particular advantage.
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? Take a moment with it — what is it actually arguing? How many arguments is it making? What would the paragraph supporting it need to do?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: more than one argument.</h3>
+      <p class="failure-explanation">The sentence tries to advance more than one argument at once. Each claim would need its own paragraph of evidence — so the reader cannot tell which claim this paragraph is actually defending.</p>
+      <p>Strip back to one claim and let the others go to their own paragraphs.</p>
+      <div class="candidate">Unfamiliar face matching is a difficult task.</div>
+      <p><strong>Why this is still not right.</strong> One argument now — that's progress. But this isn't really an argument; it's a flat statement of fact, the kind of thing nobody is going to disagree with. A topic sentence needs to claim something the paragraph then <em>defends</em>. There's no tension here, so the body has nothing to do. Compare reading <em>"X is hard"</em> against <em>"X is hard in ways you wouldn't expect"</em> — the second one earns the evidence that follows. We need to find the tension.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Unfamiliar face matching is consistently inaccurate, even under conditions designed to maximise performance.</div>
+      <p><strong>Why this is better, but still not the best.</strong> Now there's an argument. The second half does the work — the body is going to deliver evidence that the reader's intuition (good conditions → good performance) is wrong. The structural move is right. But the phrasing is wordy. <em>"Designed to maximise performance"</em> is slow, and <em>"consistently inaccurate"</em> foregrounds the less important word. The argument lands; the prose can be sharper.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Even under optimal viewing conditions, unfamiliar face matching is highly error-prone.</div>
+      <p><strong>Why this lands.</strong> Same argument as the previous version, half the friction. Front-loading <em>"Even under optimal viewing conditions"</em> tells the reader immediately that the paragraph will challenge an easy assumption. <em>"Highly error-prone"</em> is direct. The body now has clear work: deliver evidence that performance is poor <em>even when nothing is making it poor</em>, with each citation visibly closing the gap between the reader's intuition and the data.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: one argument per topic sentence — and pick the one with tension.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 2 ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Example 2</span>
+    <h2 class="section-title">Example 2.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      Across multiple independent studies, super-recognisers have consistently outperformed control participants on standardised face matching and face memory tasks (Russell et al., 2009; Bobak et al., 2016; Davis et al., 2018).
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? Where is the argument in this sentence? What is the citation actually doing here — and what should it be doing?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: citation as argument.</h3>
+      <p class="failure-explanation">The sentence reports what the literature has found instead of taking a position on it. The citations are doing the work the topic sentence should be doing.</p>
+      <div class="candidate">Super-recognisers outperform typical observers on face recognition tasks, with several studies reporting substantial accuracy advantages (Bobak et al., 2016; Davis et al., 2018).</div>
+      <p><strong>Why this is still not right.</strong> There's an argument at the start of the sentence now — that's the progress. But the sentence is still doing two jobs: stating the claim <em>and</em> reporting evidence for it. The citations belong in the body, where each one can be unpacked and made to do visible work. When the topic sentence already names the evidence, the body has nowhere to go.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Super-recognisers outperform typical observers on face recognition tasks.</div>
+      <p><strong>Why this is better, but still not the best.</strong> Clean topic sentence now — one argument, no embedded evidence, the body has space to do its work. But the claim is abstract. <em>"Outperform... on face recognition tasks"</em> doesn't tell the reader what the advantage actually consists of. If this paragraph is the reader's first concrete contact with super-recognisers, <em>"outperform"</em> gives them nothing concrete to hold. The body has nothing to anchor onto, because the topic sentence has not yet committed to what it is actually arguing.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Super-recognisers identify unfamiliar faces with markedly greater accuracy than typical observers.</div>
+      <p><strong>Why this lands.</strong> The claim is now specific. The reader knows exactly what is being argued — not a generic "advantage," but a particular kind of better performance (accuracy) on a particular kind of task (unfamiliar face identification), at a particular magnitude (markedly greater). Each piece of that specification gives the body somewhere to go: cite the magnitude of the effect, cite that it replicates across studies, cite that it holds across face matching <em>and</em> face memory tasks. Every citation is now visibly defending a falsifiable claim.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: a topic sentence makes a substantive, specific claim. The citations defend the claim from the body.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 3 ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Example 3</span>
+    <h2 class="section-title">Example 3.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      Originally developed by Ericsson and Simon (1980), think-aloud protocols require participants to verbalise their cognitive processes in real time as they perform a task of interest.
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? What is the sentence actually doing? What argument is being made <em>about</em> think-aloud here?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: definition as argument.</h3>
+      <p class="failure-explanation">The sentence describes what its subject is, rather than making a claim about it. A topic sentence is not a glossary entry.</p>
+      <div class="candidate">Think-aloud protocols offer a valuable methodology for studying cognitive processes as they unfold in real time.</div>
+      <p><strong>Why this is still not right.</strong> There's an evaluative word here now — <em>"valuable"</em> — which has the shape of an argument. But the sentence is still describing what think-aloud <em>is</em> (a methodology for studying real-time cognition), now with an opinion bolted on. <em>"Valuable"</em> does no real argumentative work because no student would ever describe their own chosen method as anything else. Slapping an adjective onto a definition does not convert it into a claim. The body still has nothing concrete to defend.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Think-aloud protocols are particularly well-suited to investigating cognitive processes that occur too quickly for accurate retrospective report.</div>
+      <p><strong>Why this is better, but still not the best.</strong> Now there is a real argument — think-aloud is the right tool for a specific kind of problem (fast cognitive processes) for a specific reason (retrospective reports fail on them). The body has clear work: cite the literature on retrospective report failure, cite think-aloud's success on real-time tasks. But the framing is defensive — <em>"particularly well-suited to..."</em> is essentially defining think-aloud's <em>niche</em>. It tells the reader where think-aloud is useful, not what it positively delivers that other methods cannot.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Think-aloud protocols provide access to cognitive processes that are invisible to behavioural measures alone.</div>
+      <p><strong>Why this lands.</strong> The sentence is now making a positive substantive claim about what think-aloud <em>does</em>. The contrast — <em>"invisible to behavioural measures alone"</em> — sets up the paragraph as an argument that <em>something is being missed</em> by methods that rely only on what participants do. The body now has structured work: examples of think-aloud yielding insights that behaviour could not capture, demonstrations of its reliability for those insights, defence of why behavioural measures alone are insufficient for the kind of question being asked. The argument is falsifiable — a reader could in principle disagree (perhaps everything important <em>is</em> visible in behaviour) — and the body's job is to close that disagreement.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: a topic sentence makes a claim about its subject, not a description of it.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 4 ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Example 4</span>
+    <h2 class="section-title">Example 4.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      Accurate face identification plays a critical role across a wide range of high-stakes professional settings, with errors carrying significant consequences.
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? Is there an argument here? And — important — does the argument connect to anything beyond itself?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: detached from the thesis.</h3>
+      <p class="failure-explanation">The sentence makes a real argument — but the argument is self-contained. It does not connect to anything the rest of the introduction is building toward.</p>
+      <div class="candidate">Accurate face identification is essential in policing and security work.</div>
+      <p><strong>Why this is still not right.</strong> The hedges are gone — no more <em>"wide range,"</em> no more <em>"professional settings"</em> in general. The sentence commits to a specific domain (policing and security), which is progress. The reader now knows what the paragraph is about. But the structural problem the original sentence had is still here. <em>"Essential in policing and security work"</em> is a self-contained claim. It's true, but it's an argument for itself, not an argument for <em>this study</em>. The reader can agree with it and walk away with no idea why this paragraph appears in <em>this</em> introduction. The body that follows is still just decorative confirmation.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Because face identification errors in professional settings carry serious consequences, identifying who performs this task accurately is itself important.</div>
+      <p><strong>Why this is better, but still not the best.</strong> The <em>"because... therefore..."</em> structure makes the argumentative move visible — the importance-of-face-identification claim is now functioning as a premise, and there is a conclusion attached. The sentence is starting to load toward something the rest of the introduction will need to deliver. But <em>"identifying who performs this task accurately"</em> is undercommitted. It hints at the direction but does not yet point cleanly toward what the thesis is actually about — understanding the <em>mechanism</em> behind accurate performance, not just identifying its presence. The bridge is there, but it is not anchored on the far side.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">The high stakes attached to face identification in professional settings make it critical to understand what enables some people to perform this task accurately.</div>
+      <p><strong>Why this lands.</strong> The topic sentence is now doing structural work in two directions at once. Backward, it carries the high-stakes claim that motivates the paragraph in the first place. Forward, it commits to a specific question — <em>what enables some people to perform this task accurately</em> — that the rest of the introduction is going to spend its pages answering. The reader walks out of this sentence knowing not just what the paragraph is about but what <em>the thesis</em> is about. The body now has visible work: cite the stakes, defend their seriousness, set up the unresolved question of what underwrites accurate performance. Every piece of the body is closing a specific gap on the way to the rest of the introduction.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: a topic sentence does work in service of the thesis, not just in service of itself.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 5 ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Example 5</span>
+    <h2 class="section-title">Example 5.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      Individual differences in face recognition ability have been a longstanding focus of research in cognitive psychology.
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? What argument is being made? Could the paragraph below this sentence go in any direction — or has it been committed to one?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: announcing the topic.</h3>
+      <p class="failure-explanation">The sentence names what the paragraph is about without taking any position on it. The reader knows the subject but not the argument.</p>
+      <div class="candidate">Research on individual differences in face recognition has identified substantial variation between people.</div>
+      <p><strong>Why this is still not right.</strong> The sentence is starting to point at something — <em>"substantial variation"</em> — which is closer to a claim than the original. But the sentence is still framed as a report <em>about the research</em>, not a claim about the phenomenon itself. <em>"Research has identified..."</em> is the give-away: the subject of the sentence is the literature, not face recognition ability. A topic sentence about face recognition needs to make a claim <em>about face recognition</em>, not about <em>what people have studied</em>. The body that follows is then defending an empirical claim about the world, not a meta-claim about a field.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Face recognition ability varies substantially between individuals.</div>
+      <p><strong>Why this is better, but still not the best.</strong> The sentence now makes a claim about face recognition itself rather than about the research literature. There is a real position being taken — <em>"varies substantially."</em> But the claim is still close to a description of what individual differences research <em>is</em> (the study of variation between individuals), which means the sentence is doing only marginal argumentative work. A reader who knows what <em>"individual differences"</em> means would read this as essentially restating the topic in slightly more specific terms. The paragraph that follows would have to do most of the lifting on its own.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Face recognition ability is a stable individual trait, with marked and consistent differences between people.</div>
+      <p><strong>Why this lands.</strong> The sentence now commits to a specific position with real teeth. <em>"Stable individual trait"</em> is the argumentative move — it is not just stating that there are differences between people, it is claiming that those differences are an enduring property of the individual, not noise or moment-to-moment fluctuation. <em>"Marked and consistent"</em> sharpens the position rather than multiplying it. The body now has clear, contestable work: cite the magnitude of between-person differences, cite their test-retest reliability, cite that the same people perform well across different tasks. Each piece of evidence is closing a specific gap in a specific argument. A sceptical reader could in principle push back — perhaps the variance is task-specific, perhaps it is state-dependent — and the body's job is to close that pushback.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: a topic sentence commits to a position about its subject. Naming the topic is not the same as arguing about it.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNOSTIC 6 ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Example 6</span>
+    <h2 class="section-title">Example 6.</h2>
+
+    <div class="example-inset">
+      <span class="ex-label">The sentence</span>
+      This section will examine the rationale for studying super-recognisers in applied identification contexts, beginning with their documented performance advantages and turning to the practical implications of these findings.
+    </div>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Diagnose</div>
+        <p class="q-prompt">Is this a topic sentence? What is the grammatical subject of this sentence — what is it about? Is it about the world, or is it about the thesis?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ Show a first attempt</button>
+    <div class="reveal" style="display:none">
+      <h3 class="failure-label">The failure: the thesis talking about itself.</h3>
+      <p class="failure-explanation">The sentence describes what the paragraph or section is going to do, rather than making a claim about the world. The grammatical subject of the sentence is the thesis itself — not the phenomenon under study.</p>
+      <div class="candidate">There are strong reasons to consider studying super-recognisers in applied identification contexts.</div>
+      <p><strong>Why this is still not right.</strong> The structural announcement is gone — no more <em>"this section will examine,"</em> no more <em>"beginning with."</em> That is progress. But the sentence is still talking about itself. <em>"There are strong reasons to consider studying..."</em> is naming the existence of a justification rather than delivering one. A reader could finish reading this sentence and have no idea what those reasons actually are. <strong>Your thesis is still talking about itself</strong> — just at one level of abstraction higher. It is now announcing that a rationale exists rather than announcing its sections. The body has to do all the work the topic sentence should have done.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show a better attempt</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">Super-recognisers' accuracy advantages have direct implications for applied identification work.</div>
+      <p><strong>Why this is better, but still not the best.</strong> Now the sentence is making a claim <em>about the world</em> rather than about the thesis. The subject is super-recognisers, not the paragraph. <em>"Direct implications"</em> commits to a position — there is a real argument here that a sceptic could push back on. But the implications themselves are still being gestured at rather than stated. The body knows roughly what direction to go (applied work, implications) but the specific bridge — <em>what kind</em> of implication, <em>for what kind</em> of applied setting, <em>with what kind</em> of expected benefit — is still being deferred. Some of the argumentative load that should be in the topic sentence is leaking into the body.</p>
+    </div>
+
+    <button class="reveal-btn">↓ Show the best version</button>
+    <div class="reveal" style="display:none">
+      <div class="candidate">If super-recognisers' laboratory advantages extend to applied identification settings, deploying them in those settings could meaningfully reduce identification errors where the cost of error is highest.</div>
+      <p><strong>Why this lands.</strong> The sentence is now making a fully committed empirical claim about the world. The conditional structure (<em>"if... could..."</em>) is doing precise argumentative work — it tells the reader the paragraph is going to defend a specific empirical bridge (laboratory advantages extending to applied settings) and a specific consequence (error reduction in high-stakes work). The body now has clear, contestable work: defend the lab-to-field generalisation, defend that deployment is feasible, defend that the error-cost asymmetry justifies the focus. A sceptical reader could in principle push back at every joint, and the body's job is to close those gaps. The thesis is no longer talking about itself — it is arguing about super-recognisers, applied settings, and the empirical case for deployment.</p>
+    </div>
+
+    <p class="closer-line"><em>The lesson: a topic sentence is about the world. The moment your thesis starts talking about itself, the argument has gone missing.</em></p>
+  </div>
+</section>
+
+<!-- ══════════ SYNTHESIS ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Synthesis</span>
+    <h2 class="section-title">Six diagnostics. One skill.</h2>
+    <p class="lede">Six failure modes. Each looks plausible on the page. Each fails in a different way. The skill that fixes all six is the same skill, expressed six ways.</p>
+
+    <ol class="diagnostic-recap">
+      <li><strong>More than one argument.</strong> One argument per topic sentence — and pick the one with tension.</li>
+      <li><strong>Citation as argument.</strong> The topic sentence makes the claim. The citations defend it, from the body.</li>
+      <li><strong>Definition as argument.</strong> A topic sentence makes a claim <em>about</em> its subject, not a description <em>of</em> it.</li>
+      <li><strong>Detached from the thesis.</strong> A topic sentence does work in service of the thesis, not just in service of itself.</li>
+      <li><strong>Announcing the topic.</strong> Naming what the paragraph is about is not the same as arguing about it.</li>
+      <li><strong>The thesis talking about itself.</strong> A topic sentence is about the world.</li>
+    </ol>
+
+    <div class="callout">
+      <h3>The skill that fixes all six.</h3>
+      <p>Commit to one substantive claim about the world — specific enough that the body has clear work to do, contestable enough that the work is worth doing, and pointed in service of the thesis you are building.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PART TWO INTRO ══════════ -->
+<section class="bg-navy">
+  <div class="container">
+    <span class="section-label">Part Two</span>
+    <h2 class="section-title">The same principle, everywhere.</h2>
+    <p class="subtitle">Not just body paragraphs.</p>
+    <p class="lede">This principle is not specific to the body of your introduction. It carries through nearly every paragraph in your thesis — the body of the introduction, the present study section, the method, the results, the discussion. The shape of what counts as "the point" shifts with context. The principle does not.</p>
+    <p>A method paragraph still leads with the point. The topic sentence is not <em>"Confidence was rated on a scale from 1 to 10."</em> It is <em>"We measured confidence because we wanted to find out whether participants' awareness of their own accuracy tracked their actual performance."</em> Same principle. Different content. The scale comes later — as supporting detail, not as the opening claim.</p>
+    <p><strong>One exception worth naming.</strong> The roadmap paragraph — the very first paragraph of your introduction — does not behave like the others. Its job is unique across the whole thesis: it has to move the reader from knowing nothing about your topic to understanding what your study is and why it exists. That work cannot be done in a single point-first sentence at the top, because the reader does not yet have the context to make sense of the point. The roadmap builds its argument across the paragraph as a whole.</p>
+    <p>A second small exception: the procedure section of your method. There, you are describing what happened in the order it happened — not making an argument. Each sentence is a step in a sequence. The point-first principle doesn't apply because there is no overarching point to lead with beyond "and then this happened next." Outside of the roadmap paragraph and the procedure section, the principle holds.</p>
+    <p>Everywhere else, lead with the point. The topic sentences you are about to write are for body paragraphs of your introduction — and the skill you are practising there carries cleanly through the rest of your thesis. The roadmap and the procedure section are the exceptions, not the rule.</p>
+  </div>
+</section>
+
+<!-- ══════════ TIPS AND CLARIFICATIONS ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Tips and Clarifications</span>
+    <h2 class="section-title">Tips and clarifications from class.</h2>
+    <p class="lede">Several substantial questions and clarifications came up in class that are worth recording here. Each one extends the lessons from the six examples in a direction that will sharpen your introduction writing.</p>
+
+    <!-- 12A — How to use citations -->
+    <h3 style="font-size:1.9rem; color:var(--navy); margin-top:3rem;">How to use citations</h3>
+    <p>Whether to put a citation in prose ("Smith and Jones (1789) found that...") or in brackets at the end of a sentence ("(Smith &amp; Jones, 1789)") is a stylistic judgement, not a rule. The choice depends on what the sentence is doing. Both forms are perfectly correct.</p>
+
+    <p style="margin-top:1.75rem;"><strong>Example 1 — When the study is the focus.</strong> When you're foregrounding a particular study, naming the authors in prose lets that study carry the weight of the sentence.</p>
+    <div class="example-inset">
+      <span class="ex-label">Citation in prose</span>
+      Smith and Jones (1789) demonstrated that even brief exposure to a face improves later recognition.
+    </div>
+    <p>The sentence is about what Smith and Jones did. Their name belongs in the action of the sentence.</p>
+
+    <p style="margin-top:1.75rem;"><strong>Example 2 — When the claim is the focus.</strong> When you're making a claim that several sources support, naming every author in prose would clutter the sentence. Put the citations at the end in brackets instead.</p>
+    <div class="example-inset">
+      <span class="ex-label">Citation in brackets</span>
+      Even brief exposure to a face improves later recognition (Smith &amp; Jones, 1789; Brown et al., 2002; Patel, 2014).
+    </div>
+    <p>The sentence is about the finding. The citations defend it from the brackets, where they stay out of the prose's way.</p>
+
+    <p style="margin-top:1.75rem;"><strong>Example 3 — Do not double-cite.</strong> If you've named the authors in prose, do not also put the citation in brackets at the end of the same sentence.</p>
+    <div class="example-inset">
+      <span class="ex-label">Wrong</span>
+      Smith and Jones (1789) found that even brief exposure improves recognition (Smith &amp; Jones, 1789).
+      <span class="ex-label">Right</span>
+      Smith and Jones (1789) found that even brief exposure improves recognition.
+    </div>
+    <p>You've already cited them. Doing it again is redundant.</p>
+
+    <p style="margin-top:1.75rem;"><strong>Example 4 — When the next sentence continues the same study.</strong> If the sentence directly following a citation is still talking about the same source, you do not need to cite it again — but you must clearly signpost that the source is the same.</p>
+    <div class="example-inset">
+      <span class="ex-label">Signposting the continued source</span>
+      Smith and Jones (1789) found that even brief exposure improves recognition. In their study, participants viewed each face for under a second before completing a recognition test.
+    </div>
+    <p>The phrase <em>"In their study"</em> makes the link unambiguous. The reader knows the second sentence is still about Smith and Jones, so the citation does not need to repeat.</p>
+
+    <div class="callout">
+      <h3>The rule of thumb that drives all of this.</h3>
+      <p>For any given claim, it should always be clear to the reader which evidence supports it. If a sentence makes a claim and the reader cannot trace the evidence back to a source, the citation needs to be there. If the trace is obvious from prose or proximity, the citation does not need to repeat. Common sense, not a fixed protocol.</p>
+    </div>
+
+    <!-- 12B — Structure around mechanisms, not measures -->
+    <h3 style="font-size:1.9rem; color:var(--navy); margin-top:3.5rem;">Structure around mechanisms, not measures</h3>
+    <p>When you write the body of your introduction, organise paragraphs around the <strong>mechanisms</strong> that might explain super-recogniser performance — not around the <strong>measures</strong> you happen to be using. The measures fall out of the mechanisms, not the other way around.</p>
+
+    <div class="option-card" style="border-left-color:#B03A2E; margin-top:1.75rem;">
+      <h3>The wrong way: organised by measure.</h3>
+      <p>Paragraphs structured around the <em>tools</em> you're using:</p>
+      <ul>
+        <li><em>Paragraph 1 — Accuracy.</em> "Accuracy is the standard measure of face recognition performance..."</li>
+        <li><em>Paragraph 2 — Think-aloud.</em> "Think-aloud protocols allow us to capture..."</li>
+        <li><em>Paragraph 3 — Memory tests.</em> "We will also assess memory using a recognition task..."</li>
+      </ul>
+      <p>This structure tells the reader <em>what you're measuring</em> but not <em>why</em>. The reader is left to assemble the theoretical story from the methodological pieces.</p>
+    </div>
+
+    <div class="option-card">
+      <h3>The right way: organised by mechanism.</h3>
+      <p>Paragraphs structured around the <em>cognitive differences</em> that might explain the super-recogniser advantage:</p>
+      <ul>
+        <li><em>Paragraph 1 — Mental representation.</em> "If super-recognisers form richer mental representations during encoding..." → which is why we use a memory test.</li>
+        <li><em>Paragraph 2 — Attention deployment.</em> "If super-recognisers attend differently during search..." → which is why we capture think-aloud data.</li>
+        <li><em>Paragraph 3 — Decision processes.</em> "If super-recognisers' confidence tracks their accuracy more closely..." → which is why we collect confidence ratings.</li>
+      </ul>
+      <p>This structure tells the reader <em>why each measure is in the study</em>. Each paragraph builds a theoretical case for one possible mechanism, and the measure follows from the mechanism rather than dictating it.</p>
+    </div>
+
+    <div class="callout">
+      <h3>Think mechanisms first.</h3>
+      <p>What might be the reason super-recognisers are better? That's the paragraph. The measure is downstream — it's what allows you to test for that mechanism. Lead with the mechanism; the measure justifies itself once the mechanism is on the page.</p>
+    </div>
+
+    <!-- 12C — Watch for what words like "outperform" hide -->
+    <h3 style="font-size:1.9rem; color:var(--navy); margin-top:3.5rem;">Watch for what words like <em>"outperform"</em> hide</h3>
+    <p>One specific moment came up in Example 2 that's worth elevating into its own tip. The word <em>"outperform"</em> sounds specific, but it isn't. It could mean <em>faster</em>, <em>more accurate</em>, <em>more efficient</em>, <em>better under particular conditions</em> — all of which are different claims with different evidence behind them.</p>
+    <p>When you write a topic sentence, watch for words that <em>sound</em> specific but carry hidden assumptions. <em>"Outperform,"</em> <em>"perform better on,"</em> <em>"show an advantage in,"</em> <em>"are more sensitive to"</em> — any of these can disguise the fact that you haven't yet committed to which dimension of performance you actually mean. Name the dimension explicitly. The reader should not have to fill in the gap.</p>
+  </div>
+</section>
+
+<!-- ══════════ WHERE TO GO FROM HERE ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Where to go from here</span>
+    <h2 class="section-title">Where to go from here.</h2>
+    <p class="lede">You have your roadmap paragraph from last week. The work now is to use it as the seed for the rest of your introduction. Here is the process — followed by the specific advice for the moments you're most likely to get stuck.</p>
+
+    <div class="activity-card">
+      <p style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--navy); margin:0 0 1.5rem 0;">A process you can follow from here to a complete introduction draft.</p>
+      <ol>
+        <li><strong>Start with your roadmap bullets.</strong> You already have the points you intended to make in your roadmap paragraph. Those bullets are the seed of your body paragraphs.</li>
+        <li><strong>Check the order of the logic.</strong> Pull the bullets onto a page. Does the chain of logic carry from your entry point (something like <em>"face matching is hard"</em>) all the way to your research question (something like <em>"how do super-recognisers and controls differ in their approach to this task?"</em>)? If the chain has gaps or wrong-order moments, fix them now — before you write anything in prose.</li>
+        <li><strong>Turn each bullet into a topic sentence.</strong> One bullet becomes one body paragraph, with its bullet content rewritten as a topic sentence that makes a single argument the body will defend. Use the six diagnostics from earlier in the document as your check.</li>
+        <li><strong>Run the first-sentence test.</strong> Pull just the topic sentences onto a page, with nothing else around them. Can you read down the page and follow the chain of logic from one topic sentence to the next, without the supporting evidence and without the linking sentences? If yes, your skeleton is sound. If not, the topic sentences themselves still need work, or their order does.</li>
+        <li><strong>Write the body.</strong> Fill in supporting sentences under each topic sentence. Evidence, examples, explanation — whatever the argument needs. This is where your reading and your literature come in, and where the body adds <em>depth</em> to what the topic sentence claims.</li>
+        <li><strong>Write the present study section.</strong> By the time you've written the body, you know exactly what the introduction has set up. The present study is now straightforward to write — it packages everything the body established into a brief description of what you're actually doing.</li>
+        <li><strong>Come back to the roadmap paragraph last.</strong> Write the roadmap <em>last</em>, when you know what the body delivered. The roadmap distills what the body covers. You cannot distill what you haven't written.</li>
+      </ol>
+    </div>
+
+    <div style="background:var(--navy); color:var(--white); border-radius:1.25rem; padding:3rem 2.5rem; margin:2.5rem 0; text-align:center; box-shadow:var(--shadow-lift);">
+      <p style="font-family:'DM Serif Display',serif; font-style:italic; font-size:clamp(1.7rem,3.4vw,2.5rem); color:var(--white); line-height:1.3; margin:0;">Get the logic right first. The prose comes last.</p>
+    </div>
+
+    <h3 style="font-size:1.9rem; color:var(--navy); margin-top:3.5rem;">When you get stuck</h3>
+    <p class="lede">Four feelings come up repeatedly when students start writing their bodies. Each one is a normal part of the work — and each one has a specific move that gets you unstuck. Try the prompt yourself before you reveal the answer.</p>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">A common feeling</div>
+        <p class="q-prompt"><em>"I feel like I'm just repeating what's already in my roadmap paragraph."</em></p>
+        <button class="reveal-btn">↓ What to do</button>
+        <div class="reveal" style="display:none">
+          <p>Your roadmap paragraph made <em>statements</em>. The body turns those statements into <em>arguments</em>.</p>
+          <p>When the roadmap said <em>"unfamiliar face matching is hard,"</em> it was telling the reader what's coming. When the body says it, it has to <em>show</em> the reader, with evidence, what that difficulty actually looks like — across settings, across populations, across conditions.</p>
+          <p>The body is not repetition. It is depth.</p>
+          <p>If your body paragraph feels like the roadmap paragraph with extra words attached, that's a sign the argument underneath the statement hasn't surfaced yet. Write the paragraph anyway. Looking at the words on the page tells you what's missing in a way that thinking about it doesn't.</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-tag">A common feeling</div>
+        <p class="q-prompt"><em>"I don't know what to talk about next."</em></p>
+        <button class="reveal-btn">↓ What to do</button>
+        <div class="reveal" style="display:none">
+          <p>Walk back from what's coming <em>next</em>. What does the reader need to know for your next argument to land?</p>
+          <p>If you're about to argue something about super-recogniser mental representations, the reader needs to first understand what mental representations are, why we think they matter for face recognition, and why super-recognisers might differ on this dimension.</p>
+          <p>The information that needs to come <em>before</em> the next argument is the content of <em>this</em> paragraph. The next-paragraph anchor tells you what this paragraph is for.</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-tag">A common feeling</div>
+        <p class="q-prompt"><em>"I can't make this topic sentence fit where I planned it."</em></p>
+        <button class="reveal-btn">↓ What to do</button>
+        <div class="reveal" style="display:none">
+          <p>The problem is not the sentence. The problem is upstream.</p>
+          <p>If you're shoehorning a topic sentence into a slot where it just doesn't work, stop. Zoom out. Look at the paragraph before — did it set up what this sentence needs to follow from? Look at the chain of logic across your topic sentences — is this argument actually where it belongs in the sequence, or does it need to move?</p>
+          <p>The signal that you can't make a topic sentence work where you planned it is your cue to zoom out, not to keep pressing. Trust the signal.</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-tag">A common feeling</div>
+        <p class="q-prompt"><em>"I feel like I need to read more before I can write anything."</em></p>
+        <button class="reveal-btn">↓ What to do</button>
+        <div class="reveal" style="display:none">
+          <p>You don't. Writing is part of thinking.</p>
+          <p>Get the topic sentences down with what you currently know. Run the first-sentence test. The places where the chain of logic feels thin tell you what you need to read next.</p>
+          <p>This is much more efficient than reading broadly and hoping the right information falls into the right place later. The topic sentences direct the reading. The reading then sharpens the body. The reverse — reading exhaustively first, then trying to write — almost never works.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CLOSING ══════════ -->
+<section class="bg-navy">
+  <div class="container close-stack">
+    <div class="quote">If the topic sentence does not argue, the paragraph cannot either.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.dataset.label = btn.textContent;
+    btn.addEventListener('click', () => {
+      const reveal = btn.nextElementSibling;
+      const hidden = reveal.style.display === 'none';
+      reveal.style.display = hidden ? 'block' : 'none';
+      btn.textContent = hidden ? '↑ Hide' : btn.dataset.label;
+    });
+  });
+</script>
+
+</body>
+</html>
