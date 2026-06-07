@@ -40,6 +40,13 @@
       file: 'week13_class.html',
       week: 'Week 13',
       description: 'Diagnosing topic sentences and building the body of your introduction, one argument per paragraph.'
+    },
+    {
+      id: 'week14',
+      label: 'The Present Study Section',
+      file: 'week14_class.html',
+      week: 'Week 14',
+      description: 'The closing move of your introduction — and the setup for everything that follows.'
     }
   ];
 

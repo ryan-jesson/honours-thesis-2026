@@ -1,0 +1,1636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Present Study Section — Honours Thesis · Week 14</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --cream:        #FAF7F2;
+    --warm:         #F0EBE3;
+    --navy:         #1C2B4A;
+    --navy-lift:    #2A3B5F;
+    --navy-border:  rgba(255,255,255,0.18);
+    --terracotta:   #C2622D;
+    --terracotta-soft: #FDF3EE;
+    --reveal-bg:    #FFF8F5;
+    --white:        #FFFFFF;
+    --ink:          #1C2B4A;
+    --muted-ink:    rgba(28,43,74,0.65);
+    --muted-white:  rgba(255,255,255,0.72);
+    --shadow:       0 2px 12px rgba(0,0,0,0.07);
+    --shadow-lift:  0 6px 24px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section frame ──────────────────────────────────────────── */
+  section {
+    min-height: 90vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section > .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .bg-cream { background: var(--cream); color: var(--ink); }
+  .bg-warm  { background: var(--warm);  color: var(--ink); }
+  .bg-navy  { background: var(--navy);  color: var(--white); }
+
+  /* ── Type ───────────────────────────────────────────────────── */
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom: 1.25rem;
+  }
+  .bg-navy .section-title { color: var(--white); }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--muted-white);
+    margin: 0 0 3rem 0;
+    max-width: 740px;
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+  .bg-cream .subtitle, .bg-warm .subtitle { color: var(--muted-ink); }
+
+  p { margin: 0 0 1rem 0; }
+  .lede { font-size: 1.15rem; }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero { text-align: center; }
+  .hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(3.2rem, 7vw, 5.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    color: var(--muted-white);
+    margin-bottom: 5rem;
+  }
+  .hero .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-navy {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* ── Reveal button ──────────────────────────────────────────── */
+  .reveal-btn {
+    display: block;
+    margin: 2rem auto;
+    background: transparent;
+    border: 2px solid var(--terracotta);
+    color: var(--terracotta);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .reveal-btn:hover {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .reveal {
+    background: var(--reveal-bg);
+    border-radius: 1rem;
+    padding: 2rem 2.25rem;
+    margin-top: 1rem;
+  }
+  .reveal h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--navy);
+  }
+  .reveal p { font-size: 1.02rem; line-height: 1.65; }
+  .reveal blockquote {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .reveal em.tag {
+    display: block;
+    margin-top: 1rem;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+  .reveal .candidate {
+    background: var(--white);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.4rem;
+    margin: 0.25rem 0 1.25rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--navy);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+  .reveal .verdict-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 1.25rem 0 0.4rem 0;
+  }
+
+  .reveal .failure-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.05rem);
+    color: var(--terracotta);
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.01em;
+  }
+  .reveal .failure-explanation {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--muted-ink);
+    font-style: italic;
+    margin: 0 0 1.75rem 0;
+  }
+
+  /* ── Socratic question blocks ──────────────────────────────── */
+  .q-stack { width: 100%; }
+  .q-block {
+    border-top: 1px solid rgba(28,43,74,0.12);
+    padding: 3rem 0 2rem;
+  }
+  .q-block:first-child { border-top: 0; padding-top: 0; }
+  .q-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .q-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+  }
+
+  /* ── Option cards (Three Options pattern) ──────────────────── */
+  .option-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: var(--shadow);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .option-card h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .option-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(28,43,74,0.07);
+  }
+  .option-row:first-of-type { border-top: 0; }
+  .option-row .lbl {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    padding-top: 0.2rem;
+  }
+  .option-row .val { font-size: 1.02rem; line-height: 1.6; }
+
+  .callout {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 1rem 1rem 0;
+    padding: 2rem 2.25rem;
+    box-shadow: var(--shadow);
+    margin-top: 2.5rem;
+  }
+  .callout h3 {
+    font-size: 1.45rem;
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+  }
+  .callout p { font-size: 1rem; line-height: 1.65; }
+
+  /* Muted concession variant of the callout */
+  .callout.muted {
+    background: var(--warm);
+    border-left-color: rgba(28,43,74,0.3);
+    box-shadow: none;
+  }
+
+  .choose-block {
+    margin-top: 3rem;
+    text-align: left;
+  }
+  .choose-block h3 {
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0 0 1.25rem 0;
+  }
+  .choose-block p { font-size: 1.05rem; line-height: 1.7; }
+
+  /* ── Concept preamble ──────────────────────────────────────── */
+  .concept-block { margin-bottom: 3rem; }
+  .concept-block h3 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin: 0 0 1rem 0;
+  }
+  .bg-navy .concept-block { color: var(--muted-white); }
+  .bg-navy .concept-block p { color: var(--muted-white); }
+  .example-inset {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--terracotta);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .example-inset .ex-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 0.5rem 0 0.25rem 0;
+  }
+  .example-inset .ex-label:first-child { margin-top: 0; }
+
+  /* The bad-sentence display: a prominent example-inset variant
+     for the diagnostic sections on cream/warm backgrounds. */
+  .bg-cream .example-inset,
+  .bg-warm  .example-inset {
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    color: var(--ink);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0 2.5rem 0;
+    border-radius: 0 0.75rem 0.75rem 0;
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    line-height: 1.55;
+  }
+  .bg-cream .example-inset .ex-label,
+  .bg-warm  .example-inset .ex-label {
+    color: var(--terracotta);
+  }
+
+  /* Italic caption sitting beneath an example-inset */
+  .example-caption {
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: -1.75rem 0 2.5rem 0;
+  }
+
+  .principle-card {
+    background: var(--navy-lift);
+    border: 1px solid var(--navy-border);
+    border-radius: 1.25rem;
+    padding: 2rem 2.25rem;
+    margin-top: 2rem;
+    color: var(--white);
+  }
+  .principle-card h4 {
+    font-size: 1.3rem;
+    color: var(--terracotta);
+    margin: 0 0 0.75rem 0;
+  }
+  .principle-card p { color: var(--muted-white); font-size: 1rem; line-height: 1.7; margin: 0 0 0.75rem 0; }
+  .principle-card p:last-child { margin-bottom: 0; }
+  .principle-card ul { margin: 0.5rem 0 0 0; padding-left: 1.25rem; color: var(--muted-white); }
+  .principle-card ul li { margin-bottom: 0.5rem; line-height: 1.6; font-size: 1rem; }
+  .principle-card .ex-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin: 1rem 0 0.25rem 0;
+  }
+
+  /* Three-up principle-card row */
+  .principle-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .principle-row .principle-card { margin-top: 0; }
+
+  /* Two-up principle-card row */
+  .principle-row.two-up { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Section 4: two candidate structures ───────────────────── */
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .structure-col {
+    background: var(--white);
+    border: 1px solid rgba(28,43,74,0.14);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+  .structure-col h3 {
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin: 0 0 1.5rem 0;
+  }
+  .structure-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .structure-box {
+    background: var(--warm);
+    border-left: 3px solid rgba(28,43,74,0.28);
+    border-radius: 0.55rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .structure-box.bookend {
+    background: rgba(28,43,74,0.06);
+    font-weight: 600;
+  }
+  .structure-caption {
+    margin: 1.5rem 0 0 0;
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* Prominent navy debate block */
+  .debate-block {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 1.25rem;
+    padding: 2.75rem 2.5rem;
+    margin-top: 3rem;
+    box-shadow: var(--shadow-lift);
+  }
+  .debate-block .debate-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    line-height: 1.3;
+    color: var(--white);
+    margin: 0 0 1.5rem 0;
+  }
+  .debate-block p { color: var(--muted-white); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+
+  /* ── Section 12: diagnostic indicators ─────────────────────── */
+  .indicator-group-label {
+    font-size: 1.9rem;
+    color: var(--navy);
+    margin-top: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .positive-indicator,
+  .negative-indicator {
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .positive-indicator { border-left: 4px solid #4caf50; }
+  .negative-indicator { border-left: 4px solid #d32f2f; }
+  .indicator-badge {
+    flex-shrink: 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .positive-indicator .indicator-badge { background: rgba(76,175,80,0.13); color: #2e7d32; }
+  .negative-indicator .indicator-badge { background: rgba(211,47,47,0.10); color: #c62828; }
+  .indicator-body { flex: 1; }
+  .indicator-body h4 {
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin: 0 0 0.4rem 0;
+  }
+  .indicator-body p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--ink);
+  }
+  .indicator-body .indicator-example {
+    display: block;
+    margin-top: 0.85rem;
+    padding-left: 0.95rem;
+    border-left: 2px solid rgba(28,43,74,0.15);
+    font-style: italic;
+    color: var(--muted-ink);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* ── Section 12: score interpretation bands ────────────────── */
+  .score-formula {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0 1.75rem 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    line-height: 1.4;
+    text-align: center;
+  }
+  .score-band {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--white);
+    border-radius: 0.85rem;
+    box-shadow: var(--shadow);
+    padding: 1.3rem 1.6rem;
+    margin-bottom: 0.85rem;
+    border-left: 5px solid var(--terracotta);
+  }
+  .score-band .band-range {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .score-band .band-text { font-size: 0.98rem; line-height: 1.55; margin: 0; }
+  .score-band .band-text strong { color: var(--navy); }
+  .score-band.band-excellent { border-left-color: #2e7d32; }
+  .score-band.band-fair      { border-left-color: #7cb342; }
+  .score-band.band-weak      { border-left-color: #f9a825; }
+  .score-band.band-critical  { border-left-color: #d32f2f; }
+
+  /* ── Closing ────────────────────────────────────────────────── */
+  .close-stack { text-align: center; }
+  .close-stack .quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 880px;
+    margin: 0 auto 4rem;
+  }
+  .close-stack .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--muted-white);
+  }
+
+  /* ── Inline emphasis inside reveals ───────────────────────── */
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  .reveal ul {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .reveal ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* ============ BUBBLE SYSTEM ============ */
+  .bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .bubble-aim {
+    background: var(--terracotta);
+    color: #ffffff;
+  }
+  .bubble-method {
+    background: #ffffff;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+  .bubble-hypothesis {
+    background: var(--navy);
+    color: #ffffff;
+  }
+  .bubble-frame {
+    background: #ffffff;
+    color: var(--terracotta);
+    border: 1.5px solid var(--terracotta);
+    font-style: italic;
+  }
+
+  /* ============ BUBBLE CLOUD (Section 3) ============ */
+  .bubble-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .bubble-cloud .bubble:nth-child(2n) { transform: translateY(-10px); }
+  .bubble-cloud .bubble:nth-child(3n) { transform: translateY(8px) rotate(-2deg); }
+  .bubble-cloud .bubble:nth-child(5n) { transform: translateY(-4px) rotate(1.5deg); }
+  .bubble-cloud .bubble:nth-child(7n) { transform: translateY(6px) rotate(-1deg); }
+
+  /* ============ STRUCTURE COMPARISON (Section 4) ============ */
+  .structure-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 768px) {
+    .structure-comparison {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .structure-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .structure-column h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .structure-column h3 .subhead {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--muted-ink);
+    margin-top: 0.35rem;
+    letter-spacing: 0.02em;
+  }
+  .bubble-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .bubble-stack .bubble {
+    display: flex;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+  }
+  /* Separator between chunks within a structure column */
+  .bubble-stack-gap {
+    height: 1.25rem;
+  }
+  .structure-caption {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--muted-ink);
+    text-align: center;
+  }
+
+  /* ============ REVEAL INVERTED (Section 5) ============ */
+  .reveal.reveal-inverted {
+    background: var(--navy);
+    color: #ffffff;
+  }
+  .reveal.reveal-inverted h3,
+  .reveal.reveal-inverted strong {
+    color: #ffffff;
+  }
+  .reveal.reveal-inverted blockquote {
+    border-left-color: var(--terracotta);
+    color: #ffffff;
+  }
+
+  /* ============ ZONE BACKGROUNDS ============ */
+  .bg-accuracy {
+    background: #FFF4ED;
+  }
+  .bg-memory {
+    background: #F0F2F8;
+  }
+  .bg-thinkaloud {
+    background: #FFF8E5;
+  }
+
+  /* ============ ZONE CORE QUESTIONS ============ */
+  .zone-question {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--navy);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+  .zone-question:last-of-type {
+    border-bottom: none;
+  }
+  .zone-question .zone-question-num {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    min-width: 2rem;
+  }
+  @media (max-width: 768px) {
+    .zone-question {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* ============ PROBE GROUPS (inside More questions to probe reveal) ============ */
+  .probe-group {
+    margin-bottom: 1.75rem;
+  }
+  .probe-group:last-child {
+    margin-bottom: 0;
+  }
+  .probe-group h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+  .probe-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .probe-group li {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-left: 2px solid var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============ FAILURE MODE CARDS ============ */
+  .failure-mode-card {
+    background: #fff;
+    border-left: 4px solid #d32f2f;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .failure-mode-card:last-child {
+    margin-bottom: 0;
+  }
+  .failure-mode-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin: 0 0 0.4rem 0;
+    color: var(--navy);
+  }
+  .failure-mode-card .fm-example {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted-ink);
+    background: #fafafa;
+    padding: 0.75rem 1rem;
+    margin: 0.6rem 0;
+    border-left: 2px solid #d32f2f;
+  }
+  .failure-mode-card .fm-why {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ============ REVISION 3 — ALIASES SO NEW COMPONENTS RESOLVE ============ */
+  /* Additive only: maps the spec's variable names onto the existing palette. */
+  :root {
+    --font-serif:       'DM Serif Display', Georgia, serif;
+    --font-sans:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ink-muted:        rgba(28,43,74,0.65);
+    --terracotta-light: #FFB89A;
+  }
+
+  /* ============ BODY EXAMPLE BLOCK (Section 6) ============ */
+
+  .body-example {
+    background: #FAFAF7;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 2rem 2.25rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .body-example-intro {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .body-example-frame {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+  }
+
+  .body-example-frame:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .body-example-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--terracotta);
+    margin-bottom: 0.85rem;
+    display: block;
+  }
+
+  .body-example-annotation {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .body-example-annotation p {
+    margin-bottom: 0.85rem;
+  }
+
+  .body-example-annotation p:last-child {
+    margin-bottom: 0;
+  }
+
+  .body-example-tip {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1.15rem;
+    background: #fff;
+    border-left: 3px solid var(--terracotta);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .body-example-tip strong {
+    font-style: normal;
+    color: var(--terracotta);
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .gap-strategies-summary {
+    background: var(--navy);
+    color: #ffffff;
+    padding: 2rem 2.25rem;
+    border-radius: 8px;
+    margin: 2.5rem 0 1rem 0;
+  }
+
+  .gap-strategies-summary h4 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+  }
+
+  .gap-strategies-summary ol {
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+
+  .gap-strategies-summary li {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+  }
+
+  .gap-strategies-summary li:last-child {
+    margin-bottom: 0;
+  }
+
+  .gap-strategies-summary li strong {
+    color: var(--terracotta-light, #FFB89A);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* ============ RHYTHM SENTENCE TEMPLATE (Section 7) ============ */
+
+  .rhythm-template {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0 2.5rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .rhythm-template .rhythm-bubble {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    line-height: 1.2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .rhythm-template .rhythm-bubble.aim {
+    background: var(--terracotta);
+    color: #ffffff;
+  }
+
+  .rhythm-template .rhythm-bubble.frame {
+    background: #ffffff;
+    color: var(--terracotta);
+    border: 1.5px solid var(--terracotta);
+    font-style: italic;
+  }
+
+  .rhythm-template .rhythm-bubble.method {
+    background: #ffffff;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+
+  .rhythm-template .rhythm-bubble.hypothesis {
+    background: var(--navy);
+    color: #ffffff;
+  }
+
+  .rhythm-template .rhythm-arrow {
+    color: var(--ink-muted);
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .rhythm-template {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .rhythm-template .rhythm-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* ============ RHYTHM SUBSECTIONS ============ */
+
+  .rhythm-subsection {
+    margin-bottom: 2rem;
+  }
+
+  .rhythm-subsection:last-child {
+    margin-bottom: 0;
+  }
+
+  .rhythm-subsection h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+
+  .rhythm-principle {
+    margin-bottom: 1.15rem;
+    padding-left: 1.15rem;
+    border-left: 2px solid var(--terracotta);
+  }
+
+  .rhythm-principle:last-child {
+    margin-bottom: 0;
+  }
+
+  .rhythm-principle strong {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  /* ============ ZONE SUBSECTIONS (Sections 8-10) ============ */
+
+  .zone-subsection {
+    margin-bottom: 2.5rem;
+  }
+
+  .zone-subsection:last-child {
+    margin-bottom: 0;
+  }
+
+  .zone-subsection h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .zone-subsection p {
+    margin-bottom: 1rem;
+    line-height: 1.65;
+  }
+
+  .zone-subsection .zone-example {
+    margin: 1rem 0;
+    padding: 0.85rem 1.15rem;
+    background: rgba(255,255,255,0.6);
+    border-left: 3px solid var(--terracotta);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .zone-subsection .zone-example-label {
+    font-style: normal;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    .card, .option-card, .activity-card, .callout { padding: 1.75rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero .hero-sub { margin-bottom: 3rem; }
+    .option-row { grid-template-columns: 1fr; gap: 0.25rem; }
+    .principle-row, .principle-row.two-up { grid-template-columns: 1fr; gap: 1rem; }
+    .structure-grid { grid-template-columns: 1fr; }
+    .score-band { grid-template-columns: 1fr; gap: 0.4rem; }
+    .debate-block { padding: 2rem 1.5rem; }
+  }
+</style>
+<link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<!-- ══════════ SECTION 1 · HERO ══════════ -->
+<section class="bg-navy">
+  <div class="container hero">
+    <div class="eyebrow">Honours Thesis · Week 14</div>
+    <h1>The Present Study Section</h1>
+    <div class="hero-sub">The closing move of your introduction — and the setup for everything that follows.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 2 · REACTIVATE ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Where this section lands</span>
+    <h2 class="section-title">From argument to action.</h2>
+    <p class="lede">You have walked through the body of your introduction. Each body paragraph makes a single argument; together, those arguments build a case that broadly says:</p>
+    <ul class="lede">
+      <li>Here's what we know</li>
+      <li>Here's what we don't yet know</li>
+      <li>And here's why knowing more about this thing <em>matters</em></li>
+    </ul>
+    <p class="lede">In essence, the Present Study section is where you say, <em>&ldquo;And here's what I'm going to do to find out more about the thing that matters&rdquo;</em>. If your body paragraphs have done their job well, by the time the reader reaches this section, the content here should feel <em>inevitable</em>.</p>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 3 · THE INGREDIENTS ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">Where to start</span>
+    <h2 class="section-title">What needs to go in this section?</h2>
+    <p class="lede">Before we work through structure, take a moment with the question. Make a quick list — in your head, on a page, in your group — of everything you think a Present Study section needs to contain. Then reveal the answer.</p>
+
+    <div class="q-stack">
+      <div class="q-block">
+        <div class="q-tag">Reactivate</div>
+        <p class="q-prompt">What are the ingredients of a Present Study section?</p>
+      </div>
+    </div>
+
+    <button class="reveal-btn">↓ The full list</button>
+    <div class="reveal" style="display:none">
+      <p>The Present Study section is built from these eleven elements. Most of you got the list right, or close to right. The mistake is rarely missing an ingredient — it is almost always in how the ingredients are arranged.</p>
+      <div class="bubble-cloud">
+        <span class="bubble bubble-frame">Overall aim</span>
+        <span class="bubble bubble-aim">Aim: accuracy</span>
+        <span class="bubble bubble-aim">Aim: memory test</span>
+        <span class="bubble bubble-aim">Aim: think-aloud</span>
+        <span class="bubble bubble-method">Method: accuracy</span>
+        <span class="bubble bubble-method">Method: memory test</span>
+        <span class="bubble bubble-method">Method: think-aloud</span>
+        <span class="bubble bubble-hypothesis">Hypothesis: accuracy</span>
+        <span class="bubble bubble-hypothesis">Hypothesis: memory test</span>
+        <span class="bubble bubble-hypothesis">Hypothesis: think-aloud</span>
+        <span class="bubble bubble-frame">Closing paragraph</span>
+      </div>
+      <p>Notice the colour coding. Aims are orange. Methods are white-on-navy outlined. Hypotheses are solid navy. The opening and closing of the section sit in their own form. The colours will carry through into the next section — where we ask how to <em>arrange</em> these eleven items on the page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 4 · THE STRUCTURE QUESTION ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Structure</span>
+    <h2 class="section-title">Two ways to arrange the same information.</h2>
+    <p class="lede">The ingredients are settled. Now the structural question — and there are two genuinely different answers. Both deliver the same information. Both are coherent on their own terms. Only one of them serves your reader well.</p>
+
+    <div class="structure-comparison">
+      <div class="structure-column">
+        <h3>Structure A:<span class="subhead">chunked by information type</span></h3>
+        <div class="bubble-stack">
+          <span class="bubble bubble-frame">Overall aim</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-aim">Aim: accuracy</span>
+          <span class="bubble bubble-aim">Aim: memory test</span>
+          <span class="bubble bubble-aim">Aim: think-aloud</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-method">Method: accuracy</span>
+          <span class="bubble bubble-method">Method: memory test</span>
+          <span class="bubble bubble-method">Method: think-aloud</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-hypothesis">Hypothesis: accuracy</span>
+          <span class="bubble bubble-hypothesis">Hypothesis: memory test</span>
+          <span class="bubble bubble-hypothesis">Hypothesis: think-aloud</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-frame">Closing paragraph</span>
+        </div>
+        <p class="structure-caption">All aims first, all methods next, all hypotheses last. Each colour cluster reads as visually coherent.</p>
+      </div>
+
+      <div class="structure-column">
+        <h3>Structure B:<span class="subhead">chunked by experimental investigation</span></h3>
+        <div class="bubble-stack">
+          <span class="bubble bubble-frame">Overall aim</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-aim">Aim: accuracy</span>
+          <span class="bubble bubble-method">Method: accuracy</span>
+          <span class="bubble bubble-hypothesis">Hypothesis: accuracy</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-aim">Aim: memory test</span>
+          <span class="bubble bubble-method">Method: memory test</span>
+          <span class="bubble bubble-hypothesis">Hypothesis: memory test</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-aim">Aim: think-aloud</span>
+          <span class="bubble bubble-method">Method: think-aloud</span>
+          <span class="bubble bubble-hypothesis">Hypothesis: think-aloud</span>
+          <div class="bubble-stack-gap"></div>
+          <span class="bubble bubble-frame">Closing paragraph</span>
+        </div>
+        <p class="structure-caption">Each investigation is a self-contained chunk. The aim, the method, and the hypothesis for one strand of your study all sit together.</p>
+      </div>
+    </div>
+
+    <div class="debate-block">
+      <p class="debate-prompt">Two structures, both delivering the same information. Which one serves your reader better — and why?</p>
+      <p>One side of the room will defend Structure A. The other side will defend Structure B. Take a few minutes with your group, build the strongest case you can for the structure you have been assigned, and prepare to argue for it. The point is not to land on the answer you happen to believe. The point is to surface, in argument, what each structure actually does well and what each one costs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 5 · THE PRINCIPLE ══════════ -->
+<section class="bg-navy">
+  <div class="container">
+    <span class="section-label">Resolution</span>
+    <h2 class="section-title">Bind by concept, not by information type.</h2>
+    <p class="subtitle">The reader's working memory is your responsibility.</p>
+    <p class="lede">The debate is useful because Structure A has a defensible case — but it is the wrong case to win. The principle that resolves the question is this: arrange your section so that information which belongs together <em>conceptually</em> sits together <em>physically</em> on the page. In a Present Study section, that means binding each investigation into a single chunk — aim, method, hypothesis, all in one place.</p>
+
+    <button class="reveal-btn">↓ Why this resolves it</button>
+    <div class="reveal reveal-inverted" style="display:none">
+      <p><strong>The reader's working memory.</strong> Structure A asks the reader to hold three aims in mind, then attach three methods to them, then attach three hypotheses to them. The work of <em>re-connecting</em> the aim, method, and hypothesis for any single investigation falls on the reader, who has to scan back and forth across the section to assemble each strand. Structure B does the connecting work for them. Each chunk is self-contained.</p>
+      <p><strong>Conceptual coherence.</strong> Each investigation in your study is its own story. The aim sets the question, the method describes what you are doing about it, the hypothesis says what you expect. These three things belong together because they <em>are</em> a single argument — splitting them across the section breaks the argument apart and forces the reader to reassemble it.</p>
+      <p><strong>The curse of knowledge.</strong> You have held the structure of your study in your head for months. You can read either structure and follow it perfectly well, because you already know how the aims, methods, and hypotheses connect. Your reader is meeting your study cold. They cannot keep three parallel threads in working memory while you work through one at a time. Make their life as easy as you can.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 6 · THE BODY OF YOUR INTRODUCTION ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Before we zoom in</span>
+    <h2 class="section-title">The body of your introduction.</h2>
+    <p class="lede">Before we work through what each chunk of the Present Study section looks like, a word about the section that precedes it: the body of your introduction. How the body does its job directly determines what the Present Study section is able to be.</p>
+    <p class="lede">The body and the Present Study section are working together. The body builds the argument that makes the Present Study section feel inevitable; the Present Study section completes the move the body has set up. If the body fails to do its job, no amount of polish on the Present Study section will recover the rationale for your study.</p>
+
+    <div class="principle-card">
+      <h4>Principle 1 — The body sets up a question, not an answer.</h4>
+      <p>Your job in the body is not to explain to the reader that you already understand how things work. If you've already understood it, there is no point doing the study. Your job is to show where the gap is, and to make the reader want to know what fills it.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Principle 2 — Show the menu of mechanisms.</h4>
+      <p>Don't argue that <em>this</em> is the most compelling mechanism. Show the reader the spread of plausible options. Three or four broad categories of mechanism, each lightly sketched, each genuinely plausible — and you don't try to convince the reader which one is right. <em>&ldquo;How could I possibly know what I was going to have for dinner? There were so many options.&rdquo;</em> That openness is what the body needs.</p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Principle 3 — Don't overclaim about causal chains.</h4>
+      <p>With exploratory data, you cannot claim that <em>X causes Y</em> even if you can show both <em>X</em> and <em>Y</em>. A causal claim requires manipulating <em>X</em> — that is a different experiment, several studies down the line. The level of argument the body should make is <em>&ldquo;these are some things that might matter, and we don't yet know which&rdquo;</em> — not <em>&ldquo;this is the mechanism, and we're going to prove it.&rdquo;</em></p>
+    </div>
+
+    <div class="principle-card">
+      <h4>Principle 4 — The body's framing shapes your Present Study section.</h4>
+      <p>How speculatively you discuss mechanisms, and which ones you choose to feature, directly shapes the aims your Present Study section states. If the body sketches a broad menu of candidates, the overall aim opens widely. If the body features one mechanism above the others, the overall aim narrows from the outset. Both are valid choices, but they are real choices, made in the body — not in the Present Study section.</p>
+    </div>
+
+    <h3 style="font-size:1.9rem; color:var(--navy); margin-top:3.5rem;">What this looks like in practice — a worked example</h3>
+    <p class="lede">Below is one way the body could play out for a study like the one you are running. The specific mechanisms named — search strategy, encoding, attention to features — are <em>illustrative</em>. Your body might surface different candidates depending on what your literature supports. The point of this example is not to show you what to write. The point is to show you what the <em>moves</em> look like, paragraph by paragraph, in a body that does its job well.</p>
+
+    <div class="body-example">
+      <p class="body-example-intro"><em>Five paragraphs, in order. Each one makes one move. Together, they build the gap that the Present Study section will then close.</em></p>
+
+      <div class="body-example-frame">
+        <span class="body-example-label">Paragraph 1 — What we already know</span>
+        <div class="body-example-annotation">
+          <p>The body begins on secure ground. You establish, confidently, what the literature has already shown — <em>super-recognisers perform better than typical observers across a range of face-matching tasks</em>. Computer-based matching, CCTV identification, live settings — the accuracy advantage has been demonstrated repeatedly. The reader takes this as settled.</p>
+          <p>You write this paragraph with confidence because, broadly, it <em>is</em> settled. But you write it with intention, too: every claim you commit here is groundwork. It tells the reader what isn't in question — which means everything that follows is set up to identify what <em>is</em> in question.</p>
+          <p>The pivot sentence at the end of the paragraph matters. Something like: <em>&ldquo;What we don't yet know, however, is what super-recognisers are actually doing differently to produce these advantages.&rdquo;</em> That pivot is where the body's real work begins.</p>
+        </div>
+      </div>
+
+      <div class="body-example-frame">
+        <span class="body-example-label">Paragraph 2 — A first plausible mechanism</span>
+        <div class="body-example-annotation">
+          <p>You start sketching the menu. <em>&ldquo;One of the things super-recognisers might be doing differently is searching more efficiently.&rdquo;</em> You cite the relevant literature — work on guiding templates in visual search, for instance — and note that it is plausible super-recognisers might be doing something similar in the face-matching context. The tone is deliberately tentative: <em>&ldquo;might be using a more efficient strategy,&rdquo;</em> not <em>&ldquo;are using a more efficient strategy.&rdquo;</em></p>
+          <p>You are not arguing this is the answer. You are saying: <em>here is one candidate. Here is some evidence that makes it plausible. But we don't yet know whether it actually explains super-recogniser performance in a live setting like ours.</em></p>
+        </div>
+        <div class="body-example-tip">
+          <strong>The move underneath.</strong> If the literature on this mechanism comes from a context different from your study — lab-based settings, computer-screen-based tasks, small-scale demonstrations — say so explicitly. The setting mismatch is itself a gap. <em>&ldquo;We have evidence that this mechanism matters in lab-based face-matching tasks, but whether it carries the same weight in a live, in-the-wild setting is an open question.&rdquo;</em>
+        </div>
+      </div>
+
+      <div class="body-example-frame">
+        <span class="body-example-label">Paragraph 3 — A second plausible mechanism</span>
+        <div class="body-example-annotation">
+          <p>Now the menu widens. <em>&ldquo;It is also plausible, though, that one of the primary drivers of super-recogniser performance is the quality of their mental representations.&rdquo;</em> You cite different literature this time — work on encoding, or work showing that super-recognisers retain face information after brief exposure (the two-second studies are a good anchor here). Again, the tone is tentative: <em>&ldquo;encoding seems like another plausible candidate.&rdquo;</em></p>
+          <p>The reader is now holding two competing accounts. Both are plausible. Both have some evidence. Neither has been resolved in the live setting your study addresses.</p>
+        </div>
+        <div class="body-example-tip">
+          <strong>The move underneath.</strong> Offering a second candidate with its own evidence base and its own theoretical commitments shows the reader that the field has not converged on a single explanation. Multiple plausible accounts in play is itself a gap. The reader does not need to be convinced <em>which</em> account is right — they need to see that the question of which one is right has not yet been answered.
+        </div>
+      </div>
+
+      <div class="body-example-frame">
+        <span class="body-example-label">Paragraph 4 — The structural critique</span>
+        <div class="body-example-annotation">
+          <p>This paragraph is the meta-move. <em>&ldquo;The problem, though, is that the existing literature in this space is limited in a particular way: the vast majority of it focuses merely on behavioural outcomes.&rdquo;</em> You are not critiquing any individual study; you are naming a systemic limitation in the existing evidence base. Even the studies that point at encoding (the two-second work, for instance) speak to encoding only inferentially, through behaviour.</p>
+          <p>The reader now understands not just that multiple accounts are in play, but <em>why</em> the existing literature cannot resolve between them. The problem is methodological, not theoretical. The mechanisms are inferred from behavioural outcomes; the <em>process</em> by which super-recognisers achieve their advantage has not been directly captured.</p>
+          <p>This paragraph sets up the next one. The gap is not just <em>we don't know which mechanism</em>. The gap is <em>the existing methods cannot tell us</em>.</p>
+        </div>
+        <div class="body-example-tip">
+          <strong>The move underneath.</strong> Showing that the existing evidence is incomplete <em>in a specific way</em> — all of it focused on outcomes, none of it capturing process — is one of the most powerful gap-surfacing moves available. It frames your study not as another piece of evidence on one side of the debate, but as a methodologically different kind of evidence that can resolve what existing methods cannot.
+        </div>
+      </div>
+
+      <div class="body-example-frame">
+        <span class="body-example-label">Paragraph 5 — The methodological pivot</span>
+        <div class="body-example-annotation">
+          <p>Now you introduce the move your study makes. <em>&ldquo;We are therefore going to do something different. We are going to look at process directly, rather than inferring it from behavioural outcomes.&rdquo;</em> You introduce the think-aloud protocol — what it is, why it captures what previous methods could not, and what it offers that the outcome-based literature cannot.</p>
+          <p>This paragraph is the bridge to the Present Study section. By the time the reader finishes it, the gap has been made fully visible, the methodological response has been justified, and the Present Study section's content feels inevitable — <em>of course</em> you are going to use think-aloud; <em>of course</em> you are going to capture process; <em>of course</em> you are going to do it in the live setting where it actually matters.</p>
+          <p>The reader does not yet know what your accuracy, memory, and think-aloud aims look like at the level of specific predictions. That is what the Present Study section is about to tell them. But the <em>why</em> — why your study is doing what it is doing — has already landed.</p>
+        </div>
+      </div>
+
+      <div class="gap-strategies-summary">
+        <h4>Five ways to use the literature to surface the gap.</h4>
+        <ol>
+          <li><strong>Use evidence that contradicts itself.</strong> If two studies on the same mechanism point in different directions, cite both. The disagreement itself is the gap.</li>
+          <li><strong>Use evidence proposing different theoretical mechanisms.</strong> Encoding accounts, search strategy accounts, attention-allocation accounts — each is a different bet on what is going on. Surfacing several shows the reader that the field has not converged on one.</li>
+          <li><strong>Use evidence that is incomplete in different ways.</strong> A study captures behaviour but not process. A study uses artificial stimuli. A study has a tiny sample. Each kind of incompleteness gives you a different angle for showing that we do not yet have the full picture.</li>
+          <li><strong>Use evidence from a different scientific context than yours.</strong> If a mechanism has been demonstrated in lab-based or computer-screen settings, but your study is in a live setting, the setting mismatch is itself a gap. <em>&ldquo;We have evidence that this mechanism matters in lab-based tasks, but whether it carries the same weight in a live, in-the-wild setting is an open question.&rdquo;</em></li>
+          <li><strong>Avoid evidence that converges on a single answer.</strong> If three studies all point at the same conclusion using the same method, citing them sells the reader on the answer rather than on the question. That converging evidence belongs in the discussion, after your data have entered the conversation — not in the body, where it would close off the gap.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 7 · THE RHYTHM OF EACH CHUNK ══════════ -->
+<section class="bg-warm">
+  <div class="container">
+    <span class="section-label">The rhythm of each chunk</span>
+    <h2 class="section-title">Aim, method, prediction — and how the sentence rhythm holds them together.</h2>
+    <p class="lede">The three zooming-in zones below — Accuracy, Memory test, and Think-aloud — each follow the same paragraph rhythm. What changes from zone to zone is the <em>substance</em>. The <em>shape</em> is the same. The rhythm is what binds each chunk together as a single coherent move from question to answer.</p>
+    <p class="lede">Each chunk in the Present Study section follows the four-part sentence rhythm shown below.</p>
+
+    <div class="rhythm-template">
+      <span class="rhythm-bubble aim">What do we aim?</span>
+      <span class="rhythm-arrow">→</span>
+      <span class="rhythm-bubble frame">Why do we aim it?</span>
+      <span class="rhythm-arrow">→</span>
+      <span class="rhythm-bubble method">How will we do it?</span>
+      <span class="rhythm-arrow">→</span>
+      <span class="rhythm-bubble hypothesis">What do we predict?</span>
+    </div>
+
+    <p style="font-style:italic; color:var(--ink-muted); font-size:1rem; line-height:1.6; text-align:center; max-width:760px; margin:0 auto 2.5rem;">The colours match the bubble system you saw earlier — aims in terracotta, methods outlined in navy, predictions filled in navy, and the rationale (the &ldquo;why&rdquo;) in the framing style. Same vocabulary, applied at the sentence level.</p>
+
+    <div class="rhythm-subsection">
+      <h3>Aim</h3>
+      <div class="rhythm-principle">
+        <strong>Principle 1.1 — States a question, not a prediction.</strong>
+        The aim is what the investigation is <em>set up to find out</em>. The hypothesis or prediction commits to what we <em>expect to find</em>. If your aim sounds like a prediction, you have collapsed two distinct moves into one sentence.
+      </div>
+      <div class="rhythm-principle">
+        <strong>Principle 1.2 — Names the mechanism, not just the measure.</strong>
+        <em>&ldquo;Investigate memory for the search faces&rdquo;</em> describes the test. <em>&ldquo;Investigate whether super-recognisers form stronger mental representations&rdquo;</em> describes the mechanism your study is actually asking about. The mechanism is what your introduction has set up; the aim cashes it out.
+      </div>
+      <div class="rhythm-principle">
+        <strong>Principle 1.3 — Lead with essence, then add detail.</strong>
+        The aim sentence itself is simple. The surrounding sentences add the why and the how. The full paragraph rhythm — <em>what do we aim, why do we aim it, how will we do it, what do we predict</em> — is what holds each chunk together.
+      </div>
+    </div>
+
+    <div class="rhythm-subsection">
+      <h3>Method</h3>
+      <div class="rhythm-principle">
+        <strong>Principle 2.1 — The kind of investigation, not its specifications.</strong>
+        The reader needs enough method to understand what each investigation is doing — not enough to replicate it. Trial counts, foil-selection algorithms, threshold values, counterbalancing schemes all belong in the method chapter, not the introduction.
+      </div>
+      <div class="rhythm-principle">
+        <strong>Principle 2.2 — Plain language over jargon.</strong>
+        Even <em>&ldquo;live manhunt setting&rdquo;</em> is jargon if it stands alone. Vivid description — <em>&ldquo;participants stand at a choke point, and at random intervals a target either appears or doesn't&rdquo;</em> — earns its place against the extra few words. The more your reader has to translate jargon into mental imagery, the more cognitive work you have asked them to do for no payoff.
+      </div>
+    </div>
+
+    <div class="rhythm-subsection">
+      <h3>Prediction</h3>
+      <div class="rhythm-principle">
+        <strong>Principle 3.1 — Use &ldquo;we&rdquo; — active voice.</strong>
+        Predictions are stated in the active first-person plural. <em>&ldquo;We predict that&hellip;&rdquo;</em> — not <em>&ldquo;It was hypothesised that&hellip;&rdquo;</em>. Passive voice obscures who is making the claim. You are.
+      </div>
+      <div class="rhythm-principle">
+        <strong>Principle 3.2 — For replication elements, commit to magnitude — at the right grain.</strong>
+        When your prediction is replicating a prior effect, the prediction has to commit to magnitude. But the grain matters: raw percentages will not transfer cleanly across samples. <em>&ldquo;Comparable in magnitude to the previously reported effect&rdquo;</em> is the right level — it commits to magnitude without locking the hypothesis to a number the sample cannot defensibly reproduce. (The 🎯 Accuracy zone below unpacks this in more detail.)
+      </div>
+      <div class="rhythm-principle">
+        <strong>Principle 3.3 — For non-replication elements, the if-then form works.</strong>
+        When you are not replicating a prior effect, you do not have to over-commit to a specific outcome. The if-then form binds the mechanism to the operationalisation: <em>&ldquo;If [mechanism], then we should see [outcome].&rdquo;</em> The mechanism goes in the first half of the prediction, the operationalisation in the second half. This works particularly well when the mechanism is novel and the prior evidence is thin.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 8 · 🎯 ACCURACY ══════════ -->
+<section class="bg-accuracy">
+  <div class="container">
+    <span class="section-label">Zooming in on accuracy</span>
+    <h2 class="section-title">🎯 Accuracy.</h2>
+    <p class="lede">The accuracy investigation is the replication backbone of the study. It establishes that there is a performance difference between super-recognisers and controls in the live manhunt paradigm — which is what makes every other investigation in this thesis meaningful in the first place.</p>
+
+    <div class="zone-subsection">
+      <h3>Aim</h3>
+      <p>The accuracy aim does two things at once. Both belong in this single aim, and the surrounding sentences in the paragraph should make both visible to the reader.</p>
+      <p>The first thing the aim does is replicate the prior effect — the substantial accuracy difference between super-recognisers and controls reported by Towler &amp; Jesson (2026). This is a real contribution: replication strengthens the evidence base, and replicating in a live setting (where most of the literature is lab-based) extends the prior work.</p>
+      <p>The second thing the aim does — the more important thing — is establish the baseline performance difference that the rest of the study presupposes. The memory test, the think-aloud analysis, the question of <em>why</em> super-recognisers perform differently — all of these depend on there being a performance difference in the first place. If the two groups perform identically on accuracy, the rest of the study has nothing to explain. Accuracy is the backbone that makes everything else meaningful.</p>
+      <p>When you write the accuracy aim, lead with the essence (the performance difference), and use the surrounding sentences to make both reasons visible.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Method</h3>
+      <p>The methodological detail you include here depends on how much you said about the prior year's study in the body of your introduction. If the body already described the live manhunt paradigm in plain language as part of explaining what Towler &amp; Jesson (2026) did, you have earned compression here — you can directly contrast your study to theirs without redescribing the paradigm from scratch.</p>
+      <p>Use that efficiency. A construction like <em>&ldquo;As in Towler &amp; Jesson (2026), participants will identify search targets in a live manhunt setting; in the present study, we extend the paradigm by [the relevant differences]&rdquo;</em> lets you signal what is the same and what is different in a single move, without losing the reader.</p>
+      <div class="zone-example">
+        <span class="zone-example-label">Too much</span>
+        &ldquo;Participants will view 20 arrays of 4 photos each, where each foil was selected via ArcFace similarity scoring at a threshold of 0.85, with target position counterbalanced across trial positions 1–4.&rdquo;
+      </div>
+      <p>Trial counts, foil-selection algorithms, threshold values, counterbalancing — these are method-chapter details. In the Present Study section, the reader needs the kind of investigation, not its specifications.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Hypothesis</h3>
+      <p>The accuracy hypothesis is a replication hypothesis, and replication forces a specific kind of precision: the prediction has to commit to magnitude. Without magnitude, the prediction has no real teeth.</p>
+      <div class="zone-example">
+        <span class="zone-example-label">Too loose</span>
+        &ldquo;We predict that super-recognisers will perform better than controls on accuracy.&rdquo;
+      </div>
+      <p>The problem with <em>&ldquo;better than&rdquo;</em> is that almost anything satisfies it. A 5% advantage would satisfy it — but a 5% advantage is not a replication of the substantial effect reported by Towler &amp; Jesson (2026). If your prediction can be satisfied by something the prior literature would not call a replication, the prediction is too loose.</p>
+      <div class="zone-example">
+        <span class="zone-example-label">Too rigid</span>
+        &ldquo;We predict that super-recognisers will outperform controls by 30%, replicating Towler &amp; Jesson (2026).&rdquo;
+      </div>
+      <p>The problem with the raw percentage is that it commits to a number the sample cannot defensibly reproduce. Different sample size, different number of trials, different task variants — the underlying effect may replicate cleanly, but the raw 30% almost certainly will not transfer. A 25% finding would be a successful replication; this prediction marks it as a failure.</p>
+      <p>Imagine the reader's experience of the rigid version. They have just read your body, which framed Towler &amp; Jesson (2026) as having found a <em>substantial</em> effect. Now you predict 30%. Your data come in at 24%. You write a discussion explaining that you have replicated the effect, and the reader thinks: <em>&ldquo;But you predicted 30%, and you got 24% — is that a replication or not?&rdquo;</em> The rigid version creates this problem for itself.</p>
+      <div class="zone-example">
+        <span class="zone-example-label">The right grain</span>
+        &ldquo;We predict that super-recognisers will outperform controls on accuracy, with an effect comparable in magnitude to that reported by Towler &amp; Jesson (2026).&rdquo;
+      </div>
+      <p><em>Comparable in magnitude</em> is the right grain. It commits to the magnitude question — a 5% effect would not be comparable — without locking the prediction to a raw number the sample cannot defensibly reproduce. The prediction has real teeth: a small effect would falsify it; a substantial effect would confirm it. And the reader does not have to do mental gymnastics to figure out whether you replicated the effect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 9 · 🧠 MEMORY TEST ══════════ -->
+<section class="bg-memory">
+  <div class="container">
+    <span class="section-label">Zooming in on the memory test</span>
+    <h2 class="section-title">🧠 Memory test.</h2>
+    <p class="lede">The memory test investigation gets at what <em>underlies</em> the accuracy advantage. The accuracy investigation tells you whether there is a difference in performance; the memory test tells you something about what super-recognisers might be doing differently to produce that difference.</p>
+
+    <div class="zone-subsection">
+      <h3>Aim</h3>
+      <p>The aim of the memory test is at the <em>mechanism</em> level, not the <em>measure</em> level. <em>&ldquo;Investigate memory for the search faces&rdquo;</em> describes the test — but the aim has to do more than describe the test. It has to name the underlying thing the test is probing for.</p>
+      <p>The mechanism the memory test gets at is the quality of super-recognisers' <em>mental representations</em> of the search targets. If super-recognisers form richer, more detailed mental representations during the encoding phase of the manhunt task, those representations should show up as superior performance on a post-task recognition test.</p>
+      <p>Worth being precise about a distinction that matters here: <em>encoding</em> and <em>mental representation</em> are related but not the same. Encoding is <em>how you take information in</em>. Mental representation is <em>what you hold in mind afterward</em>. Think of looking at the Mona Lisa: encoding is the depth of detail you take in while you are looking at the painting; mental representation is what you can still see in your mind's eye an hour later, a day later, a year later. Mental representation is the <em>product</em> of encoding — but it is also shaped by retention, by retrieval processes, by interference from other information. The memory test gets at mental representation as a product. Whether differences in mental representation reflect differences in encoding specifically is a separate question (and one that the think-aloud analysis can speak to).</p>
+      <p>When you write the memory test aim, name <em>mental representation</em> as the mechanism — and be aware of what claim you can and cannot make about how that mental representation came to be.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Method</h3>
+      <p>Describe the memory test as a post-task recognition test in plain language. <em>&ldquo;After the search task, participants identify each search target from an array of similar foils.&rdquo;</em> That level of detail is enough — the reader knows what kind of test it is, what it measures, and how it differs from the search task. Foil-selection method, array sizes, response times, counterbalancing — all method-chapter content.</p>
+      <p>One feature of the memory test worth mentioning in passing: participants do not have the reference photo available during the test. This is what makes the memory test add unique leverage to the study. The why is for the hypothesis section to unpack; the what — <em>no reference photo available</em> — is a one-line method detail.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Hypothesis</h3>
+      <p>The memory test hypothesis is <em>not</em> a replication hypothesis. The mental representation mechanism has not been demonstrated in the live manhunt paradigm before; you are not committing to a specific magnitude based on prior work. That changes the shape the hypothesis takes.</p>
+      <p>Before writing the prediction, though, you have to be clear about <em>what the memory test alone can and cannot support</em>. This is the conceptual move that makes the hypothesis honest.</p>
+      <p>A memory test result — say, super-recognisers performing significantly better than controls — can be explained by either of two distinct mechanisms. One: super-recognisers <em>encoded</em> the faces at a more detailed level during the encoding phase, and that better encoding produces a more accurate post-task memory test. Two: super-recognisers and controls encoded the faces equivalently, but super-recognisers <em>retained or retrieved</em> the information more effectively. Both explanations are consistent with the same memory test finding. The memory test alone cannot distinguish between them.</p>
+      <p>If you want to make a strong encoding claim specifically, you cannot do it from the memory test alone — you need to pair it with the think-aloud study-time data, where the <em>process</em> of encoding is captured directly. If you are happy to make a claim at the level of <em>mental representation quality</em> without specifying whether the source is encoding or retention, the memory test alone supports that.</p>
+      <p>Worth pausing on what makes the memory test special in this study. During the live search task, participants always have the reference photo available — they can look back and forth between the photo and the world. Any accuracy advantage in the live search could be explained by super-recognisers being better at <em>matching</em> between the photo and the world, rather than by anything about their mental representations. The memory test removes the reference photo from the equation. Performance on the memory test depends entirely on what the participant holds in mind. That is what isolates the mental representation question from the matching strategy question.</p>
+      <p>With all of that in view, the prediction itself works well in an if-then form:</p>
+      <div class="zone-example">
+        <span class="zone-example-label">Mental representation prediction</span>
+        &ldquo;If super-recognisers form higher-quality mental representations of the search targets during the manhunt task, we should see them perform significantly more accurately than controls on the post-task memory test.&rdquo;
+      </div>
+      <p>The mechanism (mental representation quality) sits in the first half of the prediction; the operationalisation (memory test accuracy) sits in the second half. The prediction is committal — it can be falsified — but it does not over-claim about a magnitude that prior work has not established.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 10 · 🗣️ THINK-ALOUD ══════════ -->
+<section class="bg-thinkaloud">
+  <div class="container">
+    <span class="section-label">Zooming in on think-aloud</span>
+    <h2 class="section-title">🗣️ Think-aloud.</h2>
+    <p class="lede">The think-aloud investigation is the exploratory element of the study — and that exploratory nature changes the shape of every part of the chunk. The aim, the method, and the prediction all have to be honest about what the analysis can and cannot claim.</p>
+
+    <div class="zone-subsection">
+      <h3>Aim</h3>
+      <p>The aim of the think-aloud investigation has to signal its exploratory nature from the outset. Words that do this work: <em>explore</em>, <em>characterise</em>, <em>identify any verbalisable differences</em>. These verbs tell the reader that the analysis is not testing a pre-specified hypothesis — it is asking what the data reveal.</p>
+      <p>Compare two versions:</p>
+      <div class="zone-example">
+        <span class="zone-example-label">Sounds confirmatory</span>
+        &ldquo;The think-aloud investigation aims to identify the cognitive strategies that distinguish super-recognisers from controls.&rdquo;
+      </div>
+      <div class="zone-example">
+        <span class="zone-example-label">Signals exploratory</span>
+        &ldquo;The think-aloud investigation aims to explore the cognitive processes super-recognisers and controls engage in during the manhunt task, and to characterise any verbalisable differences between the two groups.&rdquo;
+      </div>
+      <p>Both aims are about the same thing. The second one tells the reader, in its choice of verbs, that the analysis is data-led — that the dimensions of difference will emerge from the data, not be tested against a pre-specified set. That honesty serves the rest of the chunk.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Method</h3>
+      <p>Describe think-aloud as a method for capturing process directly. <em>&ldquo;Participants verbalise their reasoning during the manhunt task; transcripts are coded thematically for emergent patterns of difference between groups.&rdquo;</em> That is enough. The reader understands what the method captures and what kind of analysis is run on it.</p>
+      <p>One word that is worth using here: <em>exploratory</em>. Naming the coding as exploratory tells the reader that the codebook itself is not pre-specified — it is developed iteratively as the data come in. The specifics of how the codebook is built belong in the method chapter; the fact that it is exploratory is what the reader needs to know now.</p>
+    </div>
+
+    <div class="zone-subsection">
+      <h3>Hypothesis</h3>
+      <p>The think-aloud hypothesis is the place where students most often write something that sounds like a hypothesis but isn't. Consider:</p>
+      <div class="zone-example">
+        <span class="zone-example-label">The placeholder hypothesis</span>
+        &ldquo;We expect to see differences in the think-aloud data between super-recognisers and controls.&rdquo;
+      </div>
+      <p>Read this from the reader's perspective. What does it commit to? Any difference, on any dimension, in any direction, would satisfy it. There is no result that would falsify it short of complete identity between the two groups' transcripts. As a hypothesis, it is unfalsifiable in any meaningful sense. As a claim, it implies a level of certainty about the analysis that the analysis cannot actually support — the coding is exploratory, the dimensions of difference are not pre-specified, the data have not been seen yet.</p>
+      <p>The honest move is to embrace the exploratory nature of the analysis rather than to paper over it. Worth being explicit about what the exploratory framing means: you do not know which dimensions super-recognisers and controls will differ on. You do not know who will say more. You do not know who will say less. You do not even know what <em>more</em> and <em>less</em> should mean in this context — quality of reasoning? word count? structural complexity? Multiple plausible answers exist for each of those questions, and the analysis is designed to let those answers emerge from the data.</p>
+      <p>The move, then, is to make the exploratory framing <em>itself</em> the hypothesis. Something like:</p>
+      <div class="zone-example">
+        <span class="zone-example-label">The honest framing</span>
+        &ldquo;Given the exploratory nature of the think-aloud analysis, we do not commit to a specific pattern of differences. We anticipate that any differences between super-recognisers and controls will be data-led, and that the dimensions of difference will emerge from the thematic coding rather than being tested against a pre-specified set.&rdquo;
+      </div>
+      <p>This is honest, and it tells the reader exactly what to expect when the results come in. No confirmatory hypothesis is needed here — and that absence is not a weakness. It is the right answer for the right kind of analysis. The reader trusts you <em>more</em> for the honesty, not less.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 11 · THE CLOSING PARAGRAPH ══════════ -->
+<section class="bg-cream">
+  <div class="container">
+    <span class="section-label">Where the introduction lands</span>
+    <h2 class="section-title">The closing paragraph.</h2>
+    <p class="lede">The Present Study section ends with a brief paragraph that closes the introduction. It does not have a subheading. It does not introduce new theoretical apparatus. It does not become a separate page-long section on theoretical and societal implications. It synthesises what your introduction has built and gestures at the broader stakes of what you find.</p>
+    <p class="lede">One paragraph. Brief. Final.</p>
+
+    <div class="principle-row two-up">
+      <div class="principle-card">
+        <h4>What the closing paragraph does</h4>
+        <ul>
+          <li>Reminds the reader of the broader stakes — why the question your study answers matters beyond the immediate empirical context.</li>
+          <li>Connects the predictions back to the central thread of your introduction. The argument the body built, the question that argument led to, the predictions the present study makes — all converge here.</li>
+          <li>Leaves the reader with a sense of what is at stake in the answer your study will produce.</li>
+        </ul>
+      </div>
+
+      <div class="principle-card">
+        <h4>What the closing paragraph does not do</h4>
+        <ul>
+          <li>Does not introduce new information, new theoretical frameworks, or new literature.</li>
+          <li>Does not have its own subheading. The closing paragraph belongs to the Present Study section, not a separate "Implications" section.</li>
+          <li>Does not run to a page in length. A few sentences. Enough to land, not enough to belabour.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 12 · CLOSING ══════════ -->
+<section class="bg-navy">
+  <div class="container close-stack">
+    <div class="quote">If the body has done its work, your study should feel inevitable.</div>
+    <div class="credit">Jesson &amp; Towler · UQ Psychology Honours 2026</div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.dataset.label = btn.textContent;
+    btn.addEventListener('click', () => {
+      const reveal = btn.nextElementSibling;
+      const hidden = reveal.style.display === 'none';
+      reveal.style.display = hidden ? 'block' : 'none';
+      btn.textContent = hidden ? '↑ Hide' : btn.dataset.label;
+    });
+  });
+</script>
+
+</body>
+</html>
